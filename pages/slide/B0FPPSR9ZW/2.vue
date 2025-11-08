@@ -1,110 +1,3 @@
-<template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="container mx-auto px-4 py-8">
-      <div class="bg-white text-gray-900 rounded-lg shadow-2xl p-12">
-        <h1 class="text-5xl font-bold mb-8 text-center">スライド B0FPPSR9ZW</h1>
-        
-        <div class="prose prose-lg max-w-none">
-
-
-<div class="slide-container">
-<div class="decoration decoration-top-right"></div>
-<div class="decoration decoration-bottom-left"></div>
-<div class="content-wrapper">
-<div class="header">
-<p class="title">本書の概要・対象読者・期待される変化</p>
-<p class="subtitle">科学と実践で身につける"疲れない体"</p>
-</div>
-<div class="content-section">
-<div class="bullet-item">
-<div class="bullet-icon accent-color-1">
-<i class="fas fa-book-open"></i>
-</div>
-<div class="bullet-text">
-<p class="bullet-title">概要</p>
-<p class="bullet-desc">科学的根拠と現場経験に基づく"疲れにくい体"の作り方</p>
-</div>
-</div>
-<div class="bullet-item">
-<div class="bullet-icon accent-color-2">
-<i class="fas fa-chart-line"></i>
-</div>
-<div class="bullet-text">
-<p class="bullet-title">背景</p>
-<p class="bullet-desc">長時間座位・運動不足・加齢に伴う体力低下</p>
-</div>
-</div>
-<div class="bullet-item">
-<div class="bullet-icon accent-color-3">
-<i class="fas fa-bullseye"></i>
-</div>
-<div class="bullet-text">
-<p class="bullet-title">目的</p>
-<p class="bullet-desc">筋トレ・有酸素・ストレッチの3本柱＋習慣化・リカバリー</p>
-</div>
-</div>
-<div class="bullet-item">
-<div class="bullet-icon accent-color-4">
-<i class="fas fa-users"></i>
-</div>
-<div class="bullet-text">
-<p class="bullet-title">対象</p>
-<p class="bullet-desc">忙しい社会人〜中高年、運動が苦手な人、再始動したい人</p>
-</div>
-</div>
-<div class="bullet-item">
-<div class="bullet-icon accent-color-5">
-<i class="fas fa-lightbulb"></i>
-</div>
-<div class="bullet-text">
-<p class="bullet-title">期待される変化</p>
-<p class="bullet-desc">体力は"育てる資産"という認識／小さく始め継続できる実感</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-        </div>
-      </div>
-      
-      <div class="mt-8 flex justify-between items-center">
-        <div>
-          <NuxtLink 
-            to="/slide/B0FPPSR9ZW/1" 
-            class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-          >
-            ← 前のページ
-          </NuxtLink>
-        </div>
-        
-        <NuxtLink 
-          to="/" 
-          class="inline-block bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ホームに戻る
-        </NuxtLink>
-        
-        <div>
-          <NuxtLink 
-            to="/slide/B0FPPSR9ZW/3" 
-            class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-          >
-            次のページ →
-          </NuxtLink>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 2'
-})
-</script>
-
 <style scoped>
 
         body, html {
@@ -202,40 +95,105 @@ useHead({
             background-color: rgba(76, 175, 80, 0.1);
         }
 
-.prose {
-  @apply text-gray-900;
-}
-
-.prose h2 {
-  @apply text-3xl font-bold mb-4 mt-8;
-}
-
-.prose h3 {
-  @apply text-2xl font-bold mb-3 mt-6;
-}
-
-.prose p {
-  @apply mb-4 text-lg leading-relaxed;
-}
-
-.prose ul,
-.prose ol {
-  @apply mb-4 ml-6;
-}
-
-.prose li {
-  @apply mb-2 text-lg;
-}
-
-.prose code {
-  @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono text-blue-600;
-}
-
-.prose pre {
-  @apply bg-gray-800 text-white p-4 rounded overflow-x-auto;
-}
-
-.prose pre code {
-  @apply bg-transparent text-white px-0;
-}
 </style>
+
+<template>
+  <div class="min-h-screen bg-gray-900 text-white">
+    <div class="prose prose-lg max-w-none">
+
+<div class="slide-container">
+<div class="decoration decoration-top-right"></div>
+<div class="decoration decoration-bottom-left"></div>
+<div class="content-wrapper">
+<div class="header">
+<p class="title">本書の概要・対象読者・期待される変化</p>
+<p class="subtitle">科学と実践で身につける"疲れない体"</p>
+</div>
+<div class="content-section">
+<div class="bullet-item">
+<div class="bullet-icon accent-color-1">
+<i class="fas fa-book-open"></i>
+</div>
+<div class="bullet-text">
+<p class="bullet-title">概要</p>
+<p class="bullet-desc">科学的根拠と現場経験に基づく"疲れにくい体"の作り方</p>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon accent-color-2">
+<i class="fas fa-chart-line"></i>
+</div>
+<div class="bullet-text">
+<p class="bullet-title">背景</p>
+<p class="bullet-desc">長時間座位・運動不足・加齢に伴う体力低下</p>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon accent-color-3">
+<i class="fas fa-bullseye"></i>
+</div>
+<div class="bullet-text">
+<p class="bullet-title">目的</p>
+<p class="bullet-desc">筋トレ・有酸素・ストレッチの3本柱＋習慣化・リカバリー</p>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon accent-color-4">
+<i class="fas fa-users"></i>
+</div>
+<div class="bullet-text">
+<p class="bullet-title">対象</p>
+<p class="bullet-desc">忙しい社会人〜中高年、運動が苦手な人、再始動したい人</p>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon accent-color-5">
+<i class="fas fa-lightbulb"></i>
+</div>
+<div class="bullet-text">
+<p class="bullet-title">期待される変化</p>
+<p class="bullet-desc">体力は"育てる資産"という認識／小さく始め継続できる実感</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+
+    <div class="mt-8 flex justify-start items-center">
+      <div>
+        <NuxtLink
+          to="/slide/B0FPPSR9ZW/1"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+        >
+          ← 前のページ
+        </NuxtLink>
+      </div>
+
+      <div
+        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
+      >
+        <span><code>B0FPPSR9ZW</code>: </span>
+        <span> [ 2 / 20 ]</span>
+      </div>
+
+      <div>
+        <NuxtLink
+          to="/slide/B0FPPSR9ZW/3"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+        >
+          次のページ →
+        </NuxtLink>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<script setup lang="ts">
+useHead({
+  title: 'B0FPPSR9ZW - ページ 2'
+})
+</script>

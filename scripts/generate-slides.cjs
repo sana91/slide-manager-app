@@ -79,55 +79,48 @@ function createSlides() {
 }
 
 function generateVueTemplate(slideCode, pageNumber, totalPages) {
-  return `<template>
+  return `<style scoped>
+
+
+</style>
+
+<template>
   <div class="min-h-screen bg-gray-900 text-white">
-    <div class="container mx-auto px-4 py-8">
-      <div class="bg-white text-gray-900 rounded-lg shadow-2xl p-12">
-        <h1 class="text-5xl font-bold mb-8 text-center">スライド ${slideCode}</h1>
-        
-        <div class="prose prose-lg max-w-none">
-          <h2>ページ ${pageNumber}</h2>
-          <p>このページの内容をここに記述してください。</p>
-          
-          <ul>
-            <li>スライドコード: <code>${slideCode}</code></li>
-            <li>ページ番号: ${pageNumber} / ${totalPages}</li>
-            <li>自動生成されたテンプレートです</li>
-          </ul>
-          
-          <h3>編集方法</h3>
-          <p>このファイルを編集してスライドコンテンツを追加してください：</p>
-          <pre><code>pages/slide/${slideCode}/${pageNumber}.vue</code></pre>
-        </div>
-      </div>
-      
-      <div class="mt-8 flex justify-between items-center">
-        <div>
-          ${pageNumber > 1 ? `<NuxtLink 
-            to="/slide/${slideCode}/${pageNumber - 1}" 
-            class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-          >
-            ← 前のページ
-          </NuxtLink>` : '<div></div>'}
-        </div>
-        
-        <NuxtLink 
-          to="/" 
-          class="inline-block bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors"
+    <div class="prose prose-lg max-w-none">
+
+
+
+
+
+    </div>
+
+    <div class="mt-8 flex justify-start items-center">
+      <div>
+        ${pageNumber > 1 ? `<NuxtLink
+          to="/slide/${slideCode}/${pageNumber - 1}"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
         >
-          ホームに戻る
-        </NuxtLink>
-        
-        <div>
-          ${pageNumber < totalPages ? `<NuxtLink 
-            to="/slide/${slideCode}/${pageNumber + 1}" 
-            class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-          >
-            次のページ →
-          </NuxtLink>` : '<div></div>'}
-        </div>
+          ← 前のページ
+        </NuxtLink>` : '<div class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors">← 前のページ</div>'}
+      </div>
+
+      <div
+        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
+      >
+        <span><code>${slideCode}</code>: </span>
+        <span> [ ${pageNumber} / ${totalPages} ]</span>
+      </div>
+
+      <div>
+        ${pageNumber < totalPages ? `<NuxtLink
+          to="/slide/${slideCode}/${pageNumber + 1}"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+        >
+          次のページ →
+        </NuxtLink>` : '<div class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors">次のページ →</div>'}
       </div>
     </div>
+
   </div>
 </template>
 
@@ -136,44 +129,5 @@ useHead({
   title: '${slideCode} - ページ ${pageNumber}'
 })
 </script>
-
-<style scoped>
-.prose {
-  @apply text-gray-900;
-}
-
-.prose h2 {
-  @apply text-3xl font-bold mb-4 mt-8;
-}
-
-.prose h3 {
-  @apply text-2xl font-bold mb-3 mt-6;
-}
-
-.prose p {
-  @apply mb-4 text-lg leading-relaxed;
-}
-
-.prose ul,
-.prose ol {
-  @apply mb-4 ml-6;
-}
-
-.prose li {
-  @apply mb-2 text-lg;
-}
-
-.prose code {
-  @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono text-blue-600;
-}
-
-.prose pre {
-  @apply bg-gray-800 text-white p-4 rounded overflow-x-auto;
-}
-
-.prose pre code {
-  @apply bg-transparent text-white px-0;
-}
-</style>
 `;
 }
