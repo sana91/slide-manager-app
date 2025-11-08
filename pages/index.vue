@@ -1,42 +1,238 @@
 <template>
   <div class="container mx-auto px-4 py-8">
-    <header class="mb-8">
-      <h1 class="text-4xl font-bold text-primary-600 mb-2">
-        Slide Manager
+    <header class="mb-12 text-center">
+      <h1 class="text-5xl font-bold text-primary-600 mb-4">
+        📊 Slide Manager
       </h1>
-      <p class="text-gray-600">
+      <p class="text-xl text-gray-600 mb-8">
         HTMLスライドの管理・登録・閲覧アプリケーション
       </p>
+      <div class="flex justify-center gap-4">
+        <NuxtLink 
+          to="/slides" 
+          class="px-8 py-4 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors shadow-lg text-lg"
+        >
+          スライド一覧を見る
+        </NuxtLink>
+        <NuxtLink 
+          to="/slides/create" 
+          class="px-8 py-4 bg-white text-primary-600 border-2 border-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition-colors shadow-lg text-lg"
+        >
+          新規作成
+        </NuxtLink>
+      </div>
     </header>
 
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h2 class="text-2xl font-semibold mb-4">Welcome!</h2>
-      <p class="text-gray-700 mb-4">
-        Nuxt 4 + Tailwind CSS + TypeScriptでセットアップが完了しました。
-      </p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="p-4 bg-primary-50 rounded-lg border border-primary-200">
-          <h3 class="font-semibold text-primary-700 mb-2">📝 スライド登録</h3>
-          <p class="text-sm text-gray-600">HTMLスライドを簡単に登録・管理</p>
-        </div>
-        
-        <div class="p-4 bg-primary-50 rounded-lg border border-primary-200">
-          <h3 class="font-semibold text-primary-700 mb-2">📚 一覧表示</h3>
-          <p class="text-sm text-gray-600">登録されたスライドを一覧で確認</p>
-        </div>
-        
-        <div class="p-4 bg-primary-50 rounded-lg border border-primary-200">
-          <h3 class="font-semibold text-primary-700 mb-2">👀 閲覧機能</h3>
-          <p class="text-sm text-gray-600">スライドをプレビュー表示</p>
+    <!-- 統計情報 -->
+    <div class="mb-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-blue-100 text-sm font-medium mb-1">登録スライド数</p>
+            <p class="text-4xl font-bold">{{ totalSlides }}</p>
+          </div>
+          <div class="text-5xl opacity-80">📊</div>
         </div>
       </div>
+      
+      <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-lg shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-green-100 text-sm font-medium mb-1">総ページ数</p>
+            <p class="text-4xl font-bold">{{ totalPages }}</p>
+          </div>
+          <div class="text-5xl opacity-80">📄</div>
+        </div>
+      </div>
+      
+      <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-purple-100 text-sm font-medium mb-1">最終更新</p>
+            <p class="text-lg font-semibold">{{ lastUpdateText }}</p>
+          </div>
+          <div class="text-5xl opacity-80">🕐</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 機能紹介 -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">主な機能</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div class="text-4xl mb-4">📝</div>
+          <h3 class="font-bold text-xl text-gray-900 mb-3">スライド登録</h3>
+          <p class="text-gray-600 mb-4">
+            スライド名とユニークなコードを設定し、HTMLソースコードから直接ページを作成できます。
+          </p>
+          <ul class="text-sm text-gray-500 space-y-1 list-disc list-inside">
+            <li>スライド単位での管理</li>
+            <li>英数字のスライドコード</li>
+            <li>ページごとのHTML編集</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div class="text-4xl mb-4">📚</div>
+          <h3 class="font-bold text-xl text-gray-900 mb-3">一覧管理</h3>
+          <p class="text-gray-600 mb-4">
+            登録されたスライドを一覧で確認し、検索やフィルタリングで素早く目的のスライドを見つけられます。
+          </p>
+          <ul class="text-sm text-gray-500 space-y-1 list-disc list-inside">
+            <li>検索機能</li>
+            <li>タグでのフィルタリング</li>
+            <li>ソート機能</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div class="text-4xl mb-4">👀</div>
+          <h3 class="font-bold text-xl text-gray-900 mb-3">閲覧・プレゼン</h3>
+          <p class="text-gray-600 mb-4">
+            各スライドは独自のURLでアクセス可能。キーボードナビゲーションでスムーズにプレゼンテーションできます。
+          </p>
+          <ul class="text-sm text-gray-500 space-y-1 list-disc list-inside">
+            <li>スライドごとの専用URL</li>
+            <li>キーボードナビゲーション</li>
+            <li>ページ番号表示</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 最近のスライド -->
+    <div v-if="recentSlides.length > 0" class="mb-12">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-3xl font-bold text-gray-900">最近のスライド</h2>
+        <NuxtLink 
+          to="/slides" 
+          class="text-primary-600 hover:text-primary-700 font-medium"
+        >
+          すべて見る →
+        </NuxtLink>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <NuxtLink
+          v-for="slide in recentSlides"
+          :key="slide.id"
+          :to="`/slides/${slide.id}`"
+          class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-200"
+        >
+          <h3 class="text-xl font-bold text-gray-900 mb-2">
+            {{ slide.slideName }}
+          </h3>
+          <p class="text-sm text-gray-500 font-mono bg-gray-100 px-2 py-1 rounded inline-block mb-3">
+            /slide/{{ slide.slideCode }}/
+          </p>
+          
+          <p v-if="slide.description" class="text-gray-600 text-sm mb-3 line-clamp-2">
+            {{ slide.description }}
+          </p>
+          
+          <div class="flex items-center gap-4 text-sm text-gray-500">
+            <span>📄 {{ slide.pages.length }} ページ</span>
+            <span>🕐 {{ formatDate(slide.updatedAt) }}</span>
+          </div>
+        </NuxtLink>
+      </div>
+    </div>
+
+    <!-- クイックスタートガイド -->
+    <div class="bg-gradient-to-r from-primary-50 to-blue-50 rounded-lg p-8 border border-primary-200">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">🚀 クイックスタート</h2>
+      <ol class="space-y-3 text-gray-700">
+        <li class="flex items-start gap-3">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">1</span>
+          <div>
+            <strong>スライドを作成:</strong> 
+            <NuxtLink to="/slides/create" class="text-primary-600 hover:underline">新規作成</NuxtLink>
+            からスライド名とスライドコードを登録
+          </div>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">2</span>
+          <div>
+            <strong>ページを追加:</strong> スライド詳細画面からHTMLコードを入力してページを追加
+          </div>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="flex-shrink-0 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">3</span>
+          <div>
+            <strong>プレゼン:</strong> 生成されたURL（/slide/コード/ページ番号）でスライドを表示
+          </div>
+        </li>
+      </ol>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+// Head設定
 useHead({
   title: 'ホーム'
 })
+
+// スライド管理機能を取得
+const slideContext = injectSlideContext()
+
+// 統計情報
+const totalSlides = computed(() => slideContext.slides.value.length)
+const totalPages = computed(() => {
+  return slideContext.slides.value.reduce((sum, slide) => sum + slide.pages.length, 0)
+})
+
+const lastUpdateText = computed(() => {
+  if (slideContext.slides.value.length === 0) return '—'
+  
+  const dates = slideContext.slides.value.map(s => s.updatedAt.getTime())
+  const latest = new Date(Math.max(...dates))
+  
+  const now = new Date()
+  const diff = now.getTime() - latest.getTime()
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+  
+  if (days === 0) return '今日'
+  if (days === 1) return '昨日'
+  if (days < 7) return `${days}日前`
+  
+  return latest.toLocaleDateString('ja-JP', { month: 'short', day: 'numeric' })
+})
+
+// 最近のスライド（最大3件）
+const recentSlides = computed(() => {
+  return [...slideContext.slides.value]
+    .sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime())
+    .slice(0, 3)
+})
+
+// 日付フォーマット
+const formatDate = (date: Date) => {
+  const now = new Date()
+  const diff = now.getTime() - date.getTime()
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+  
+  if (days === 0) return '今日'
+  if (days === 1) return '昨日'
+  if (days < 7) return `${days}日前`
+  
+  return date.toLocaleDateString('ja-JP', { month: 'short', day: 'numeric' })
+}
+
+// マウント時にスライドを読み込み
+onMounted(() => {
+  if (slideContext.slides.value.length === 0) {
+    slideContext.fetchSlides()
+  }
+})
 </script>
+
+<style scoped>
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+</style>

@@ -11,4 +11,12 @@ useHead({
     return titleChunk ? `${titleChunk} - Slide Manager` : 'Slide Manager'
   }
 })
+
+// スライドコンテキストをアプリケーション全体に提供
+const slideContext = provideSlideContext()
+
+// アプリケーション起動時にスライドを読み込み
+onMounted(() => {
+  slideContext.fetchSlides()
+})
 </script>

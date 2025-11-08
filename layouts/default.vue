@@ -43,18 +43,12 @@
     <!-- フッター -->
     <footer class="bg-gray-100 border-t border-gray-200 mt-auto">
       <div class="container mx-auto px-4 py-6 text-center text-gray-600 text-sm">
-        <p>&copy; 2024 Slide Manager. Built with Nuxt 4 + Tailwind CSS.</p>
+        <p>&copy; 2024 Slide Manager. Built with Nuxt 3 + Tailwind CSS.</p>
       </div>
     </footer>
   </div>
 </template>
 
 <script setup lang="ts">
-// レイアウトレベルでスライドコンテキストを提供
-const slideContext = provideSlideContext()
-
-// アプリケーション起動時にスライドを読み込み
-onMounted(() => {
-  slideContext.fetchSlides()
-})
+// レイアウト固有のロジックのみ
 </script>

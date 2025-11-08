@@ -1,4 +1,4 @@
-import type { Slide, CreateSlideInput, UpdateSlideInput, SlideFilters } from '~/types'
+import type { Slide, CreateSlideInput, UpdateSlideInput, SlideFilters, SlideCodeValidation, SlidePage, CreatePageInput, UpdatePageInput } from '~/types'
 
 /**
  * スライド管理のビジネスロジック
@@ -18,15 +18,18 @@ export const useSlides = () => {
     error.value = null
     
     try {
-      // 現時点ではローカルストレージから取得
-      // 将来的にAPIに置き換え可能
       const storedSlides = localStorage.getItem('slides')
       if (storedSlides) {
         const parsed = JSON.parse(storedSlides)
         slides.value = parsed.map((slide: any) => ({
           ...slide,
           createdAt: new Date(slide.createdAt),
-          updatedAt: new Date(slide.updatedAt)
+          updatedAt: new Date(slide.updatedAt),
+          pages: slide.pages?.map((page: any) => ({
+            ...page,
+            createdAt: new Date(page.createdAt),
+            updatedAt: new Date(page.updatedAt)
+          })) || []
         }))
       }
     } catch (e) {
@@ -37,16 +40,65 @@ export const useSlides = () => {
     }
   }
 
-  // 特定のスライドを取得
+  // 特定のスライドを取得（ID指定）
   const getSlideById = (id: string): Slide | undefined => {
     return slides.value.find(slide => slide.id === id)
   }
 
+  // 特定のスライドを取得（スライドコード指定）
+  const getSlideByCode = (slideCode: string): Slide | undefined => {
+    return slides.value.find(slide => slide.slideCode === slideCode)
+  }
+
+  // スライドコードのバリデーション
+  const validateSlideCode = (slideCode: string, excludeId?: string): SlideCodeValidation => {
+    // 英数字のみチェック
+    const alphanumericRegex = /^[a-zA-Z0-9]+$/
+    if (!alphanumericRegex.test(slideCode)) {
+      return {
+        isValid: false,
+        message: 'スライドコードは英数字のみ使用できます'
+      }
+    }
+
+    // 長さチェック
+    if (slideCode.length < 3 || slideCode.length > 50) {
+      return {
+        isValid: false,
+        message: 'スライドコードは3文字以上50文字以内で入力してください'
+      }
+    }
+
+    // 重複チェック
+    const existingSlide = slides.value.find(
+      slide => slide.slideCode === slideCode && slide.id !== excludeId
+    )
+    if (existingSlide) {
+      return {
+        isValid: false,
+        message: 'このスライドコードは既に使用されています'
+      }
+    }
+
+    return { isValid: true }
+  }
+
   // スライドを作成
-  const createSlide = async (input: CreateSlideInput): Promise<Slide> => {
+  const createSlide = async (input: CreateSlideInput): Promise<Slide | null> => {
+    // バリデーション
+    const validation = validateSlideCode(input.slideCode)
+    if (!validation.isValid) {
+      error.value = validation.message || 'バリデーションエラー'
+      return null
+    }
+
     const newSlide: Slide = {
       id: generateId(),
-      ...input,
+      slideName: input.slideName,
+      slideCode: input.slideCode,
+      description: input.description,
+      tags: input.tags || [],
+      pages: [],
       createdAt: new Date(),
       updatedAt: new Date()
     }
@@ -63,6 +115,15 @@ export const useSlides = () => {
     if (index === -1) {
       error.value = 'スライドが見つかりません'
       return null
+    }
+
+    // スライドコードの変更がある場合はバリデーション
+    if (input.slideCode && input.slideCode !== slides.value[index].slideCode) {
+      const validation = validateSlideCode(input.slideCode, id)
+      if (!validation.isValid) {
+        error.value = validation.message || 'バリデーションエラー'
+        return null
+      }
     }
 
     const updatedSlide: Slide = {
@@ -91,6 +152,125 @@ export const useSlides = () => {
     return true
   }
 
+  // ページを追加
+  const addPage = async (input: CreatePageInput): Promise<SlidePage | null> => {
+    const slide = slides.value.find(s => s.id === input.slideId)
+    if (!slide) {
+      error.value = 'スライドが見つかりません'
+      return null
+    }
+
+    // 次のページ番号を取得
+    const nextPageNumber = slide.pages.length > 0
+      ? Math.max(...slide.pages.map(p => p.pageNumber)) + 1
+      : 1
+
+    const newPage: SlidePage = {
+      id: generateId(),
+      pageNumber: nextPageNumber,
+      htmlContent: input.htmlContent,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+
+    slide.pages.push(newPage)
+    slide.updatedAt = new Date()
+    
+    await saveToStorage()
+    await generateStaticFile(slide.slideCode, newPage)
+    
+    return newPage
+  }
+
+  // ページを更新
+  const updatePage = async (slideId: string, pageId: string, input: UpdatePageInput): Promise<SlidePage | null> => {
+    const slide = slides.value.find(s => s.id === slideId)
+    if (!slide) {
+      error.value = 'スライドが見つかりません'
+      return null
+    }
+
+    const pageIndex = slide.pages.findIndex(p => p.id === pageId)
+    if (pageIndex === -1) {
+      error.value = 'ページが見つかりません'
+      return null
+    }
+
+    const updatedPage: SlidePage = {
+      ...slide.pages[pageIndex],
+      htmlContent: input.htmlContent,
+      updatedAt: new Date()
+    }
+
+    slide.pages[pageIndex] = updatedPage
+    slide.updatedAt = new Date()
+    
+    await saveToStorage()
+    await generateStaticFile(slide.slideCode, updatedPage)
+    
+    return updatedPage
+  }
+
+  // ページを削除
+  const deletePage = async (slideId: string, pageId: string): Promise<boolean> => {
+    const slide = slides.value.find(s => s.id === slideId)
+    if (!slide) {
+      error.value = 'スライドが見つかりません'
+      return false
+    }
+
+    const pageIndex = slide.pages.findIndex(p => p.id === pageId)
+    if (pageIndex === -1) {
+      error.value = 'ページが見つかりません'
+      return false
+    }
+
+    slide.pages.splice(pageIndex, 1)
+    slide.updatedAt = new Date()
+    
+    await saveToStorage()
+    
+    return true
+  }
+
+  // 静的ファイルを生成（Vueコンポーネントとして）
+  const generateStaticFile = async (slideCode: string, page: SlidePage): Promise<void> => {
+    try {
+      // ファイル情報をlocalStorageに保存（実際のファイル生成の代わり）
+      const fileKey = `slide_file_${slideCode}_${page.pageNumber}`
+      const fileData = {
+        slideCode,
+        pageNumber: page.pageNumber,
+        htmlContent: page.htmlContent,
+        generatedAt: new Date().toISOString()
+      }
+      localStorage.setItem(fileKey, JSON.stringify(fileData))
+      
+      console.log(`Generated file: /slide/${slideCode}/${page.pageNumber}.vue`)
+    } catch (e) {
+      console.error('ファイル生成に失敗しました:', e)
+    }
+  }
+
+  // スライドの全ページを再生成
+  const regenerateAllPages = async (slideId: string): Promise<boolean> => {
+    const slide = slides.value.find(s => s.id === slideId)
+    if (!slide) {
+      error.value = 'スライドが見つかりません'
+      return false
+    }
+
+    try {
+      for (const page of slide.pages) {
+        await generateStaticFile(slide.slideCode, page)
+      }
+      return true
+    } catch (e) {
+      error.value = 'ファイル再生成に失敗しました'
+      return false
+    }
+  }
+
   // フィルタリングされたスライドを取得
   const getFilteredSlides = computed(() => {
     let result = [...slides.value]
@@ -99,7 +279,8 @@ export const useSlides = () => {
     if (filters.value.searchQuery) {
       const query = filters.value.searchQuery.toLowerCase()
       result = result.filter(slide =>
-        slide.title.toLowerCase().includes(query) ||
+        slide.slideName.toLowerCase().includes(query) ||
+        slide.slideCode.toLowerCase().includes(query) ||
         slide.description?.toLowerCase().includes(query)
       )
     }
@@ -118,8 +299,8 @@ export const useSlides = () => {
     result.sort((a, b) => {
       let comparison = 0
       
-      if (sortBy === 'title') {
-        comparison = a.title.localeCompare(b.title)
+      if (sortBy === 'slideName') {
+        comparison = a.slideName.localeCompare(b.slideName)
       } else {
         const aDate = a[sortBy as 'createdAt' | 'updatedAt'].getTime()
         const bDate = b[sortBy as 'createdAt' | 'updatedAt'].getTime()
@@ -144,7 +325,7 @@ export const useSlides = () => {
 
   // IDを生成
   const generateId = (): string => {
-    return `slide_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+    return `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
   }
 
   // フィルタを更新
@@ -155,6 +336,11 @@ export const useSlides = () => {
   // フィルタをリセット
   const resetFilters = () => {
     filters.value = {}
+  }
+
+  // エラーをクリア
+  const clearError = () => {
+    error.value = null
   }
 
   return {
@@ -168,13 +354,24 @@ export const useSlides = () => {
     // Computed
     filteredSlides: getFilteredSlides,
     
-    // Methods
+    // Methods - Slide
     fetchSlides,
     getSlideById,
+    getSlideByCode,
+    validateSlideCode,
     createSlide,
     updateSlide,
     deleteSlide,
+    
+    // Methods - Page
+    addPage,
+    updatePage,
+    deletePage,
+    regenerateAllPages,
+    
+    // Methods - Filters
     updateFilters,
-    resetFilters
+    resetFilters,
+    clearError
   }
 }
