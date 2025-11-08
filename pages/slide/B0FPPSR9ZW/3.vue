@@ -119,7 +119,7 @@
 </style>
 
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
+  <div class="min-h-screen bg-gray-900 text-white container">
     <div class="prose prose-lg max-w-none">
 
 <div class="slide-container">
@@ -262,9 +262,9 @@
       </div>
 
       <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
+        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors text-center"
       >
-        <span><code>B0FPPSR9ZW</code>: </span>
+        <span><code>B0FPPSR9ZW</code><br /></span>
         <span> [ 3 / 20 ]</span>
       </div>
 

@@ -85,7 +85,7 @@ function generateVueTemplate(slideCode, pageNumber, totalPages) {
 </style>
 
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
+  <div class="min-h-screen bg-gray-900 text-white container">
     <div class="prose prose-lg max-w-none">
 
 
@@ -105,9 +105,9 @@ function generateVueTemplate(slideCode, pageNumber, totalPages) {
       </div>
 
       <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
+        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors text-center"
       >
-        <span><code>${slideCode}</code>: </span>
+        <span><code>${slideCode}</code><br /></span>
         <span> [ ${pageNumber} / ${totalPages} ]</span>
       </div>
 
