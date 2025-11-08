@@ -1,7 +1,7 @@
 <template>
   <div class="slide-viewer min-h-screen bg-gray-900">
     <!-- ローディング -->
-    <div v-if="isLoading" class="flex items-center justify-center min-h-screen">
+    <div v-if="pageLoading" class="flex items-center justify-center min-h-screen">
       <div class="text-white text-center">
         <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-white mb-4"></div>
         <p>読み込み中...</p>
@@ -9,11 +9,11 @@
     </div>
 
     <!-- エラー -->
-    <div v-else-if="error" class="flex items-center justify-center min-h-screen">
+    <div v-else-if="pageError" class="flex items-center justify-center min-h-screen">
       <div class="text-white text-center max-w-md">
         <div class="text-6xl mb-4">❌</div>
         <h2 class="text-2xl font-bold mb-2">エラー</h2>
-        <p class="text-gray-300 mb-6">{{ error }}</p>
+        <p class="text-gray-300 mb-6">{{ pageError }}</p>
         <NuxtLink
           to="/slides"
           class="inline-block bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
@@ -107,25 +107,37 @@ useHead({
 })
 
 // スライド管理機能を取得
-const slideContext = injectSlideContext()
+let slideContext: ReturnType<typeof injectSlideContext> | null = null
+try {
+  slideContext = injectSlideContext()
+} catch (e) {
+  console.error('Failed to inject slide context:', e)
+}
 
-// 状態
+// 状態（グローバルステートとの競合を避けるため、ローカルrefを使用）
 const slide = ref<Slide | null>(null)
 const currentPage = ref<SlidePage | null>(null)
-const isLoading = ref(true)
-const error = ref<string | null>(null)
+const pageLoading = ref(true)
+const pageError = ref<string | null>(null)
 
 // スライドとページを読み込み
 const loadSlideAndPage = () => {
-  isLoading.value = true
-  error.value = null
+  pageLoading.value = true
+  pageError.value = null
+
+  // スライドコンテキストが存在しない場合
+  if (!slideContext) {
+    pageError.value = 'スライドコンテキストが初期化されていません'
+    pageLoading.value = false
+    return
+  }
 
   // スライドを取得
   slide.value = slideContext.getSlideByCode(slideCode)
   
   if (!slide.value) {
-    error.value = `スライド「${slideCode}」が見つかりません`
-    isLoading.value = false
+    pageError.value = `スライド「${slideCode}」が見つかりません`
+    pageLoading.value = false
     return
   }
 
@@ -133,18 +145,28 @@ const loadSlideAndPage = () => {
   currentPage.value = slide.value.pages.find(p => p.pageNumber === pageNumber) || null
   
   if (!currentPage.value) {
-    error.value = `ページ ${pageNumber} が見つかりません`
-    isLoading.value = false
+    pageError.value = `ページ ${pageNumber} が見つかりません`
+    pageLoading.value = false
     return
   }
 
-  isLoading.value = false
+  pageLoading.value = false
 }
 
 // HTMLサニタイズ
 const sanitizedHtml = computed(() => {
   if (!currentPage.value) return ''
-  return DOMPurify.sanitize(currentPage.value.htmlContent)
+  try {
+    // クライアントサイドでのみサニタイズを実行
+    if (typeof window !== 'undefined' && DOMPurify) {
+      return DOMPurify.sanitize(currentPage.value.htmlContent)
+    }
+    // サーバーサイドでは空文字を返す
+    return ''
+  } catch (e) {
+    console.error('Sanitization error:', e)
+    return ''
+  }
 })
 
 // ページ情報
@@ -188,18 +210,38 @@ const handleKeydown = (event: KeyboardEvent) => {
 // マウント時に読み込み
 onMounted(() => {
   loadSlideAndPage()
-  window.addEventListener('keydown', handleKeydown)
+  if (typeof window !== 'undefined') {
+    window.addEventListener('keydown', handleKeydown)
+  }
 })
 
 // アンマウント時にクリーンアップ
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
+onBeforeUnmount(() => {
+  try {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('keydown', handleKeydown)
+    }
+    // 状態をクリア
+    slide.value = null
+    currentPage.value = null
+  } catch (e) {
+    console.error('Cleanup error:', e)
+  }
 })
 
 // ルート変更時に再読み込み
-watch(() => route.params, () => {
-  loadSlideAndPage()
-})
+watch(() => [route.params.slideCode, route.params.pageNumber], ([newSlideCode, newPageNumber]) => {
+  // パラメータが変更された場合のみ再読み込み
+  if (newSlideCode && newPageNumber) {
+    // 古いデータをクリア
+    slide.value = null
+    currentPage.value = null
+    // 新しいデータを読み込み
+    nextTick(() => {
+      loadSlideAndPage()
+    })
+  }
+}, { immediate: false })
 </script>
 
 <style scoped>
