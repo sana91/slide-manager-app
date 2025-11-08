@@ -97,15 +97,6 @@ const router = useRouter()
 const slideCode = route.params.slideCode as string
 const pageNumber = parseInt(route.params.pageNumber as string, 10)
 
-// Head設定
-useHead({
-  title: computed(() => 
-    slide.value 
-      ? `${slide.value.slideName} - ページ ${currentPageNumber.value}` 
-      : 'スライド表示'
-  )
-})
-
 // スライド管理機能を取得
 const slideContext = injectSlideContext()
 
@@ -150,6 +141,15 @@ const sanitizedHtml = computed(() => {
 // ページ情報
 const currentPageNumber = computed(() => currentPage.value?.pageNumber || pageNumber)
 const totalPages = computed(() => slide.value?.pages.length || 0)
+
+// Head設定（slide と currentPageNumber が定義された後に設定）
+useHead({
+  title: computed(() => 
+    slide.value 
+      ? `${slide.value.slideName} - ページ ${currentPageNumber.value}` 
+      : 'スライド表示'
+  )
+})
 
 // ナビゲーション
 const sortedPages = computed(() => {
