@@ -36,6 +36,8 @@ export default defineNuxtConfig({
 
   // アプリケーション設定
   app: {
+    // リポジトリ配下で公開する場合は baseURL を環境変数で差し替え
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
       title: 'Slide Manager',
       meta: [
