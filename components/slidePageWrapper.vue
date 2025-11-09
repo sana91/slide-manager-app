@@ -215,7 +215,7 @@ onMounted(() => {
 })
 </script>
 
-<style type="text/css">
+<style scoped>
 
 .icon-toggle-button, .icon-fixed-nav-button {
   @apply bg-blue-600 hover:bg-blue-700;
