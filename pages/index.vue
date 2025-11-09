@@ -14,12 +14,6 @@
         >
           スライド一覧を見る
         </NuxtLink>
-        <NuxtLink 
-          to="/slides/create" 
-          class="px-8 py-4 bg-white text-primary-600 border-2 border-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition-colors shadow-lg text-lg"
-        >
-          新規作成
-        </NuxtLink>
       </div>
     </header>
 
@@ -101,44 +95,6 @@
       </div>
     </div>
 
-    <!-- 最近のスライド -->
-    <div v-if="recentSlides.length > 0" class="mb-12">
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="text-3xl font-bold text-gray-900">最近のスライド</h2>
-        <NuxtLink 
-          to="/slides" 
-          class="text-primary-600 hover:text-primary-700 font-medium"
-        >
-          すべて見る →
-        </NuxtLink>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <NuxtLink
-          v-for="slide in recentSlides"
-          :key="slide.id"
-          :to="`/slides/${slide.id}`"
-          class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-200"
-        >
-          <h3 class="text-xl font-bold text-gray-900 mb-2">
-            {{ slide.slideName }}
-          </h3>
-          <p class="text-sm text-gray-500 font-mono bg-gray-100 px-2 py-1 rounded inline-block mb-3">
-            /slide/{{ slide.slideCode }}/
-          </p>
-          
-          <p v-if="slide.description" class="text-gray-600 text-sm mb-3 line-clamp-2">
-            {{ slide.description }}
-          </p>
-          
-          <div class="flex items-center gap-4 text-sm text-gray-500">
-            <span>📄 {{ slide.pages.length }} ページ</span>
-            <span>🕐 {{ formatDate(slide.updatedAt) }}</span>
-          </div>
-        </NuxtLink>
-      </div>
-    </div>
-
     <!-- クイックスタートガイド -->
     <div class="bg-gradient-to-r from-primary-50 to-blue-50 rounded-lg p-8 border border-primary-200">
       <h2 class="text-2xl font-bold text-gray-900 mb-4">🚀 クイックスタート</h2>
@@ -147,8 +103,8 @@
           <span class="flex-shrink-0 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">1</span>
           <div>
             <strong>スライドを作成:</strong> 
-            <NuxtLink to="/slides/create" class="text-primary-600 hover:underline">新規作成</NuxtLink>
-            からスライド名とスライドコードを登録
+            <span class="text-primary-600 hover:underline">新規作成</span>
+            からスライド名とスライドコードを登録 ※そんなものはない
           </div>
         </li>
         <li class="flex items-start gap-3">
@@ -174,21 +130,23 @@ useHead({
   title: 'ホーム'
 })
 
-// スライド管理機能を取得
-const slideContext = injectSlideContext()
+interface SlideStats {
+  totalSlides: number
+  totalPages: number
+  lastUpdate: string | null
+}
+
+// 統計情報を取得
+const { data: stats, pending } = await useFetch<SlideStats>('/api/slides/stats')
 
 // 統計情報
-const totalSlides = computed(() => slideContext.slides.value.length)
-const totalPages = computed(() => {
-  return slideContext.slides.value.reduce((sum, slide) => sum + slide.pages.length, 0)
-})
+const totalSlides = computed(() => stats.value?.totalSlides ?? 0)
+const totalPages = computed(() => stats.value?.totalPages ?? 0)
 
 const lastUpdateText = computed(() => {
-  if (slideContext.slides.value.length === 0) return '—'
+  if (!stats.value?.lastUpdate) return '—'
   
-  const dates = slideContext.slides.value.map(s => s.updatedAt.getTime())
-  const latest = new Date(Math.max(...dates))
-  
+  const latest = new Date(stats.value.lastUpdate)
   const now = new Date()
   const diff = now.getTime() - latest.getTime()
   const days = Math.floor(diff / (1000 * 60 * 60 * 24))
@@ -198,33 +156,6 @@ const lastUpdateText = computed(() => {
   if (days < 7) return `${days}日前`
   
   return latest.toLocaleDateString('ja-JP', { month: 'short', day: 'numeric' })
-})
-
-// 最近のスライド（最大3件）
-const recentSlides = computed(() => {
-  return [...slideContext.slides.value]
-    .sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime())
-    .slice(0, 3)
-})
-
-// 日付フォーマット
-const formatDate = (date: Date) => {
-  const now = new Date()
-  const diff = now.getTime() - date.getTime()
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-  
-  if (days === 0) return '今日'
-  if (days === 1) return '昨日'
-  if (days < 7) return `${days}日前`
-  
-  return date.toLocaleDateString('ja-JP', { month: 'short', day: 'numeric' })
-}
-
-// マウント時にスライドを読み込み
-onMounted(() => {
-  if (slideContext.slides.value.length === 0) {
-    slideContext.fetchSlides()
-  }
 })
 </script>
 
