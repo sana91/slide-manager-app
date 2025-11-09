@@ -7,6 +7,15 @@ export default defineNuxtConfig({
   
   devtools: { enabled: true },
   
+  // ビルドフック: スライドデータを生成
+  hooks: {
+    'build:before': async () => {
+      const { execSync } = require('child_process')
+      console.log('📦 Generating slide data...')
+      execSync('node scripts/generate-slide-data.cjs', { stdio: 'inherit' })
+    }
+  },
+  
   modules: [
     '@nuxtjs/tailwindcss'
   ],

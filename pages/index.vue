@@ -136,8 +136,21 @@ interface SlideStats {
   lastUpdate: string | null
 }
 
+// 開発時はAPI、本番（SPA）ではJSONファイルを読み込む
+// APIが失敗した場合はJSONファイルにフォールバック
+const isDev = import.meta.dev
+const apiUrl = isDev ? '/api/slides/stats' : '/api/slides/stats.json'
+const jsonUrl = '/api/slides/stats.json'
+
 // 統計情報を取得
-const { data: stats, pending } = await useFetch<SlideStats>('/api/slides/stats')
+let fetchResult = await useFetch<SlideStats>(apiUrl)
+
+// APIが失敗した場合はJSONファイルを読み込む
+if (fetchResult.error.value && fetchResult.error.value.statusCode === 404) {
+  fetchResult = await useFetch<SlideStats>(jsonUrl)
+}
+
+const { data: stats, pending } = fetchResult
 
 // 統計情報
 const totalSlides = computed(() => stats.value?.totalSlides ?? 0)

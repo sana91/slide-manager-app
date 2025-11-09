@@ -5,10 +5,11 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "npm run generate:data && nuxt dev",
     "generate": "nuxt generate",
     "generate:slides": "node scripts/generate-slides.cjs",
     "generate:missing": "node scripts/generate-missing-slides.cjs",
+    "generate:data": "node scripts/generate-slide-data.cjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },

@@ -58,5 +58,18 @@ interface SlideInfo {
   title: string
 }
 
-const { data: slides, pending, error } = await useFetch<SlideInfo[]>('/api/slides/list')
+// 開発時はAPI、本番（SPA）ではJSONファイルを読み込む
+// APIが失敗した場合はJSONファイルにフォールバック
+const isDev = import.meta.dev
+const apiUrl = isDev ? '/api/slides/list' : '/api/slides/list.json'
+const jsonUrl = '/api/slides/list.json'
+
+let fetchResult = await useFetch<SlideInfo[]>(apiUrl)
+
+// APIが失敗した場合はJSONファイルを読み込む
+if (fetchResult.error.value && fetchResult.error.value.statusCode === 404) {
+  fetchResult = await useFetch<SlideInfo[]>(jsonUrl)
+}
+
+const { data: slides, pending, error } = fetchResult
 </script>
