@@ -1,50 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/14"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 15 / 20 ]</span>
-      </div>
-
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/16"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次のページ →
-        </NuxtLink>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="第10章：日常習慣で底上げする" :current-page="15" :total-pages="20">
+<div class='slide-container'><div class='decoration decoration-top-right'></div><div class='decoration decoration-bottom-left'></div><div class='content-wrapper'><div class='header'><p class='title'>第10章：日常習慣で体力を底上げする</p><p class='subtitle'>毎日の生活動作にひと工夫で体力アップ</p></div><div class='content-section'><div class='bullet-item'><div class='bullet-icon accent-color-1'><i class='fas fa-home'></i></div><div class='bullet-text'><p class='bullet-title'>家事を'運動化'する</p><p class='bullet-desc'>掃除は広く・速く・丁寧に。洗濯物干しはスクワットやつま先立ちを意識。料理中は小さなステップを踏むなど動きを加える。</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-2'><i class='fas fa-walking'></i></div><div class='bullet-text'><p class='bullet-title'>通勤・移動を見直す</p><p class='bullet-desc'>スニーカー通勤、階段を常用する。一駅分歩く、あえて遠回りするなど「動く機会」を増やす工夫。</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-3'><i class='fas fa-briefcase'></i></div><div class='bullet-text'><p class='bullet-title'>仕事の合間に動きを</p><p class='bullet-desc'>立ちミーティング、電話中は歩きながら、30分ごとに姿勢を変える。デスクでのつま先立ちやストレッチを習慣に。</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-4'><i class='fas fa-moon'></i></div><div class='bullet-text'><p class='bullet-title'>夜のルーティン化</p><p class='bullet-desc'>入浴→ストレッチ→就寝の固定パターンを作る。体内時計を整え、質の良い睡眠と翌日の体調につなげる。</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-5'><i class='fas fa-power-off'></i></div><div class='bullet-text'><p class='bullet-title'>デジタル断食</p><p class='bullet-desc'>就寝前60分はスマホ・PCを使わない「ノンスクリーンタイム」。ブルーライト軽減と脳の休息で睡眠の質を向上。</p></div></div></div></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 15'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            background-color: #f5f9fc;            overflow: hidden;            position: relative;        }        .content-wrapper {            flex: 1;            display: flex;            flex-direction: column;            padding: 60px;            z-index: 2;        }        .header {            margin-bottom: 40px;        }        .title {            font-size: 42px;            font-weight: 700;            color: #1e88e5;            margin-bottom: 10px;        }        .subtitle {            font-size: 24px;            font-weight: 500;            color: #546e7a;        }        .content-section {            display: flex;            flex-direction: column;            gap: 24px;        }        .bullet-item {            display: flex;            align-items: flex-start;            gap: 16px;        }        .bullet-icon {            flex-shrink: 0;            width: 46px;            height: 46px;            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            font-size: 20px;            color: white;        }        .bullet-text {            flex: 1;        }        .bullet-title {            font-size: 22px;            font-weight: 700;            margin-bottom: 6px;        }        .bullet-desc {            font-size: 18px;            font-weight: 400;            line-height: 1.5;        }        .accent-color-1 { background-color: #4caf50; }        .accent-color-2 { background-color: #2196f3; }        .accent-color-3 { background-color: #ff9800; }        .accent-color-4 { background-color: #9c27b0; }        .accent-color-5 { background-color: #e91e63; }        .decoration {            position: absolute;            z-index: 1;        }        .decoration-top-right {            top: -80px;            right: -80px;            width: 200px;            height: 200px;            border-radius: 50%;            background-color: rgba(33, 150, 243, 0.1);        }        .decoration-bottom-left {            bottom: -100px;            left: -100px;            width: 300px;            height: 300px;            border-radius: 50%;            background-color: rgba(76, 175, 80, 0.1);        }
+</style>

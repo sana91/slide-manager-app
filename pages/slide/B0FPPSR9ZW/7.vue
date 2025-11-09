@@ -1,50 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/6"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 7 / 20 ]</span>
-      </div>
-
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/8"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次のページ →
-        </NuxtLink>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="第4–5章：動かない時間を減らす／今が最も若い日" :current-page="7" :total-pages="20">
+<div class='slide-container'><div class='decoration decoration-top-right'></div><div class='decoration decoration-bottom-left'></div><div class='content-wrapper'><div class='header'><p class='title'>第4–5章：動かない時間を減らす／今が最も若い日</p><p class='subtitle'>日常の中で体を動かす小さな工夫が体力の差になる</p></div><div class='content-section'><div class='bullet-item'><div class='bullet-icon accent-color-1'><i class='fas fa-chair'></i></div><div class='bullet-text'><p class='bullet-title'>座りの分断</p><p class='bullet-desc'>30–60分ごとに立つ・伸びる・歩くことで、長時間の座りによる悪影響を軽減</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-2'><i class='fas fa-walking'></i></div><div class='bullet-text'><p class='bullet-title'>NEATを増やす</p><p class='bullet-desc'>階段・一駅歩く・遠回り・家事を丁寧に行うなど、非運動性活動熱産生を意識的に増やす</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-3'><i class='fas fa-chart-line'></i></div><div class='bullet-text'><p class='bullet-title'>小分けの積み重ね</p><p class='bullet-desc'>日々の小さな動きの積み重ねが、長期的には大きな体力差を生み出す</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-4'><i class='fas fa-hourglass-start'></i></div><div class='bullet-text'><p class='bullet-title'>今が最も若い日</p><p class='bullet-desc'>始めるなら「今」が最適なタイミング。年齢を言い訳にせず、現在の自分にできることから始める</p></div></div></div></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 7'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            background-color: #f5f9fc;            overflow: hidden;            position: relative;        }        .content-wrapper {            flex: 1;            display: flex;            flex-direction: column;            padding: 60px;            z-index: 2;        }        .header {            margin-bottom: 40px;        }        .title {            font-size: 42px;            font-weight: 700;            color: #1e88e5;            margin-bottom: 10px;        }        .subtitle {            font-size: 24px;            font-weight: 500;            color: #546e7a;        }        .content-section {            display: flex;            flex-direction: column;            gap: 24px;        }        .bullet-item {            display: flex;            align-items: flex-start;            gap: 16px;        }        .bullet-icon {            flex-shrink: 0;            width: 46px;            height: 46px;            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            font-size: 20px;            color: white;        }        .bullet-text {            flex: 1;        }        .bullet-title {            font-size: 22px;            font-weight: 700;            margin-bottom: 6px;        }        .bullet-desc {            font-size: 18px;            font-weight: 400;            line-height: 1.5;        }        .accent-color-1 { background-color: #4caf50; }        .accent-color-2 { background-color: #2196f3; }        .accent-color-3 { background-color: #ff9800; }        .accent-color-4 { background-color: #9c27b0; }        .decoration {            position: absolute;            z-index: 1;        }        .decoration-top-right {            top: -80px;            right: -80px;            width: 200px;            height: 200px;            border-radius: 50%;            background-color: rgba(33, 150, 243, 0.1);        }        .decoration-bottom-left {            bottom: -100px;            left: -100px;            width: 300px;            height: 300px;            border-radius: 50%;            background-color: rgba(76, 175, 80, 0.1);        }
+</style>

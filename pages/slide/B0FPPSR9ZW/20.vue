@@ -1,45 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/19"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 20 / 20 ]</span>
-      </div>
-
-      <div>
-        <div class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors">次のページ →</div>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="まとめ（締め）— 今日から'体力おばけ'への一歩" :current-page="20" :total-pages="20">
+<div class='slide-container'><div class='decoration decoration-top-right'></div><div class='decoration decoration-bottom-left'></div><div class='header'><p class='title'>まとめ（締め）— 今日から'体力おばけ'への一歩</p></div><div class='content-wrapper'><div class='summary-container'><div class='summary-section core-principles'><div class='summary-title'><div class='icon-wrap'><i class='fas fa-check-circle summary-icon'></i></div><p>要点振り返り</p></div><p class='summary-text'>3本柱（筋トレ・有酸素・ストレッチ）× 習慣化の仕組み × リカバリー</p></div><div class='summary-section tomorrow-actions'><div class='summary-title'><div class='icon-wrap'><i class='fas fa-bolt summary-icon'></i></div><p>明日からの3アクション</p></div><div class='action-list'><div class='action-item'><div class='action-number'>1</div><p class='action-text'>スタンドアップ 10秒×1セット</p></div><div class='action-item'><div class='action-number'>2</div><p class='action-text'>階段を1フロア分追加</p></div><div class='action-item'><div class='action-number'>3</div><p class='action-text'>入浴後に2分ストレッチ</p></div></div></div><div class='summary-section motto'><div class='summary-title'><div class='icon-wrap'><i class='fas fa-star summary-icon'></i></div><p>コア原則</p></div><p class='summary-text'>小さく始めて、やりすぎないで、続ける — <br/>続けやすさこそ最強の戦略</p></div></div></div><div class='footer'><p class='footer-text'>体力おばけへの道 - 本書の実践ポイント</p></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 20'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            flex-direction: column;            background-color: #f8f9fa;            overflow: hidden;            position: relative;        }        .header {            padding: 40px 60px 20px 60px;        }        .title {            font-size: 42px;            font-weight: 700;            color: #1e88e5;            margin: 0;            text-align: center;        }        .content-wrapper {            flex: 1;            display: flex;            flex-direction: column;            padding: 0 80px 40px 80px;            align-items: center;            justify-content: center;        }        .summary-container {            width: 100%;            display: flex;            flex-direction: column;            gap: 25px;        }        .summary-section {            background-color: white;            border-radius: 12px;            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);            padding: 24px 30px;            position: relative;        }        .summary-title {            font-size: 26px;            font-weight: 700;            color: #1e88e5;            margin: 0 0 15px 0;            display: flex;            align-items: center;        }        .summary-text {            font-size: 22px;            line-height: 1.5;            margin: 0;            color: #2c3e50;        }        .icon-wrap {            width: 36px;            height: 36px;            background-color: rgba(33, 150, 243, 0.15);            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            margin-right: 15px;        }        .summary-icon {            font-size: 18px;            color: #1e88e5;        }        .core-principles {            border-left: 6px solid #4caf50;        }        .tomorrow-actions {            border-left: 6px solid #ff9800;        }        .action-list {            display: flex;            flex-direction: column;            gap: 12px;            margin-top: 15px;        }        .action-item {            display: flex;            align-items: center;        }        .action-number {            width: 32px;            height: 32px;            background-color: #ff9800;            color: white;            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            font-weight: 700;            margin-right: 15px;            font-size: 18px;        }        .action-text {            font-size: 22px;            color: #2c3e50;            margin: 0;        }        .motto {            border-left: 6px solid #9c27b0;            background-color: rgba(156, 39, 176, 0.05);        }        .motto .summary-text {            font-weight: 700;            text-align: center;            font-size: 26px;            color: #9c27b0;        }        .decoration {            position: absolute;            z-index: 0;        }        .decoration-top-right {            top: -60px;            right: -60px;            width: 160px;            height: 160px;            border-radius: 50%;            background-color: rgba(33, 150, 243, 0.08);        }        .decoration-bottom-left {            bottom: -80px;            left: -80px;            width: 200px;            height: 200px;            border-radius: 50%;            background-color: rgba(76, 175, 80, 0.08);        }        .footer {            display: flex;            justify-content: center;            margin-top: 20px;        }        .footer-text {            font-size: 16px;            color: #78909c;            font-style: italic;        }
+</style>

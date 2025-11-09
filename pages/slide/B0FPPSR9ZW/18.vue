@@ -1,50 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/17"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 18 / 20 ]</span>
-      </div>
-
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/19"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次のページ →
-        </NuxtLink>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="キーセンテンス（本書の核メッセージ）" :current-page="18" :total-pages="20">
+<div class='slide-container'><div class='decoration decoration-top-right'></div><div class='decoration decoration-bottom-left'></div><div class='header'><p class='title'>キーセンテンス（本書の核メッセージ）</p></div><div class='content-wrapper'><div class='quote-container'><div class='quote-item quote-accent-1'><div class='quote-icon'><i class='fas fa-quote-left'></i></div><p class='quote-text'>体力は'選択と習慣'で何歳からでも伸ばせる</p></div><div class='quote-item quote-accent-2'><div class='quote-icon'><i class='fas fa-quote-left'></i></div><p class='quote-text'>小さな継続が最短の近道：あと1回・あと1秒</p></div><div class='quote-item quote-accent-3'><div class='quote-icon'><i class='fas fa-quote-left'></i></div><p class='quote-text'>動くことと休むことは両輪：回復もトレーニング</p></div><div class='quote-item quote-accent-4'><div class='quote-icon'><i class='fas fa-quote-left'></i></div><p class='quote-text'>今日の一歩が未来の自分を作る</p></div></div></div><div class='footer'><p class='footer-text'>体力おばけへの道 - 本書の重要なメッセージ</p></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 18'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            flex-direction: column;            background-color: #f8f9fa;            overflow: hidden;            position: relative;        }        .header {            padding: 40px 60px 20px 60px;        }        .title {            font-size: 42px;            font-weight: 700;            color: #1e88e5;            margin: 0;            text-align: center;        }        .content-wrapper {            flex: 1;            display: flex;            flex-direction: column;            padding: 0 80px 40px 80px;            align-items: center;            justify-content: center;        }        .quote-container {            width: 100%;            display: flex;            flex-direction: column;            gap: 30px;        }        .quote-item {            background-color: white;            border-radius: 12px;            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);            padding: 24px 30px;            position: relative;            display: flex;            align-items: center;        }        .quote-icon {            font-size: 42px;            color: rgba(33, 150, 243, 0.15);            position: absolute;            left: 20px;            top: 15px;        }        .quote-text {            font-size: 24px;            line-height: 1.5;            font-weight: 700;            margin-left: 50px;            position: relative;            z-index: 2;            color: #2c3e50;        }        .quote-accent-1 {            border-left: 6px solid #4caf50;        }        .quote-accent-2 {            border-left: 6px solid #2196f3;        }        .quote-accent-3 {            border-left: 6px solid #ff9800;        }        .quote-accent-4 {            border-left: 6px solid #9c27b0;        }        .decoration {            position: absolute;            z-index: 0;        }        .decoration-top-right {            top: -60px;            right: -60px;            width: 160px;            height: 160px;            border-radius: 50%;            background-color: rgba(33, 150, 243, 0.08);        }        .decoration-bottom-left {            bottom: -80px;            left: -80px;            width: 200px;            height: 200px;            border-radius: 50%;            background-color: rgba(76, 175, 80, 0.08);        }        .footer {            display: flex;            justify-content: center;            margin-top: 20px;        }        .footer-text {            font-size: 16px;            color: #78909c;            font-style: italic;        }
+</style>

@@ -6,14 +6,13 @@ const path = require('path');
 // コマンドライン引数を取得
 const args = process.argv.slice(2);
 
-if (args.length < 2) {
-  console.error('❌ Usage: npm run generate:slides <slide_code> <page_count>');
-  console.error('   Example: npm run generate:slides MY_SLIDE 5');
+if (args.length < 1) {
+  console.error('❌ Usage: npm run generate:slides <slide_code>');
+  console.error('   Example: npm run generate:slides MY_SLIDE');
   process.exit(1);
 }
 
 const slideCode = args[0];
-const pageCount = parseInt(args[1], 10);
 
 // バリデーション
 if (!slideCode || slideCode.trim() === '') {
@@ -21,10 +20,55 @@ if (!slideCode || slideCode.trim() === '') {
   process.exit(1);
 }
 
-if (isNaN(pageCount) || pageCount < 1) {
-  console.error('❌ Error: page_count must be a positive number');
+// TSVファイルのパス
+const tsvPath = path.join(__dirname, 'src', `${slideCode}.tsv`);
+
+// TSVファイルの存在確認
+if (!fs.existsSync(tsvPath)) {
+  console.error(`❌ Error: TSV file not found: ${tsvPath}`);
   process.exit(1);
 }
+
+// TSVファイルを読み込んで解析
+function parseTSV(filePath) {
+  const content = fs.readFileSync(filePath, 'utf8');
+  const lines = content.split('\n').filter(line => line.trim() !== '');
+
+  if (lines.length < 2) {
+    console.error('❌ Error: TSV file must have at least a header row and one data row');
+    process.exit(1);
+  }
+
+  // ヘッダー行を取得
+  const headers = lines[0].split('\t').map(h => h.trim());
+
+  // 必要な列のインデックスを取得
+  const titleIndex = headers.indexOf('title');
+  const bodyIndex = headers.indexOf('body');
+  const styleIndex = headers.indexOf('style');
+
+  if (titleIndex === -1 || bodyIndex === -1 || styleIndex === -1) {
+    console.error('❌ Error: TSV file must have "title", "body", and "style" columns');
+    process.exit(1);
+  }
+
+  // データ行を解析（ヘッダー行を除く）
+  const dataRows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const values = lines[i].split('\t');
+    dataRows.push({
+      title: values[titleIndex] || '',
+      body: values[bodyIndex] || '',
+      style: values[styleIndex] || ''
+    });
+  }
+
+  return dataRows;
+}
+
+// TSVデータを解析
+const tsvData = parseTSV(tsvPath);
+const totalPages = tsvData.length;
 
 // スライドディレクトリのパス
 const slideDir = path.join(__dirname, '..', 'pages', 'slide', slideCode);
@@ -56,10 +100,18 @@ function createSlides() {
   console.log(`✅ Created directory: ${slideDir}`);
 
   // 各ページファイルを作成
-  for (let i = 1; i <= pageCount; i++) {
+  for (let i = 1; i <= totalPages; i++) {
     const fileName = `${i}.vue`;
     const filePath = path.join(slideDir, fileName);
-    const content = generateVueTemplate(slideCode, i, pageCount);
+    const rowData = tsvData[i - 1]; // 0-indexedなので i-1
+    const content = generateVueTemplate(
+      slideCode,
+      rowData.title,
+      i,
+      totalPages,
+      rowData.body,
+      rowData.style
+    );
     
     fs.writeFileSync(filePath, content, 'utf8');
     console.log(`  ✅ Created: ${fileName}`);
@@ -69,64 +121,24 @@ function createSlides() {
   console.log('🎉 Slide generation completed!');
   console.log('');
   console.log(`📂 Location: pages/slide/${slideCode}/`);
-  console.log(`📄 Files created: ${pageCount} page(s)`);
+  console.log(`📄 Files created: ${totalPages} page(s)`);
   console.log('');
   console.log(`🌐 Access URLs:`);
-  for (let i = 1; i <= pageCount; i++) {
+  for (let i = 1; i <= totalPages; i++) {
     console.log(`   - http://localhost:3000/slide/${slideCode}/${i}`);
   }
   console.log('');
 }
 
-function generateVueTemplate(slideCode, pageNumber, totalPages) {
-  return `<style scoped>
-
-
-</style>
-
-<template>
-  <div class="min-h-screen bg-gray-900 text-white container px-4 py-4">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        ${pageNumber > 1 ? `<NuxtLink
-          to="/slide/${slideCode}/${pageNumber - 1}"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前頁
-        </NuxtLink>` : '<div class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors">← 前頁</div>'}
-      </div>
-
-      <div
-        class="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors text-center"
-      >
-        <span> [ ${pageNumber} / ${totalPages} ]</span>
-      </div>
-
-      <div>
-        ${pageNumber < totalPages ? `<NuxtLink
-          to="/slide/${slideCode}/${pageNumber + 1}"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次頁 →
-        </NuxtLink>` : '<div class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors">次頁 →</div>'}
-      </div>
-    </div>
-
-  </div>
+function generateVueTemplate(slideCode, pageTitle, pageNumber, totalPages, body, style) {
+  return `<template>
+  <SlidePageWrapper slide-id="${slideCode}" page-title="${pageTitle}" :current-page="${pageNumber}" :total-pages="${totalPages}">
+${body}
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: '${slideCode} - ページ ${pageNumber}'
-})
-</script>
+<style scoped>
+${style}
+</style>
 `;
 }

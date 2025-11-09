@@ -1,50 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/10"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 11 / 20 ]</span>
-      </div>
-
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/12"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次のページ →
-        </NuxtLink>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="運動① スタンドアップ（椅子スクワット）" :current-page="11" :total-pages="20">
+<div class='slide-container'><div class='header'><p class='title'>運動① スタンドアップ（椅子スクワット）</p></div><div class='content-wrapper'><div class='column'><div class='column-title'><div class='column-icon left-color'><i class='fas fa-list-ol'></i></div><p>手順</p></div><div class='content-box'><div class='step-item'><div class='step-number'>1</div><p class='step-text'>椅子に浅く座り背すじを伸ばす</p></div><div class='step-item'><div class='step-number'>2</div><p class='step-text'>足幅は肩幅、つま先と膝の向きをそろえる</p></div><div class='step-item'><div class='step-number'>3</div><p class='step-text'>股関節から前傾→足裏全体で立ち上がる</p></div><div class='step-item'><div class='step-number'>4</div><p class='step-text'>コントロールして座り直す</p></div><div class='footer-note'><div class='note-icon'><i class='fas fa-sync-alt'></i></div><p class='note-text'>繰り返し行う（10秒〜30秒を目安に）</p></div></div></div><div class='divider'></div><div class='column'><div class='column-title'><div class='column-icon right-color'><i class='fas fa-lightbulb'></i></div><p>ポイント・注意点</p></div><div class='content-box'><div class='point-item'><div class='point-icon'><i class='fas fa-check'></i></div><p class='point-text'>背中を丸めない／膝が内側に入らないよう注意</p></div><div class='point-item'><div class='point-icon'><i class='fas fa-shoe-prints'></i></div><p class='point-text'>かかと荷重を意識し、安定感を保つ</p></div><div class='point-item'><div class='point-icon'><i class='fas fa-wind'></i></div><p class='point-text'>呼吸を止めずにリズミカルに行う</p></div><div class='point-item'><div class='point-icon'><i class='fas fa-stopwatch'></i></div><p class='point-text'>回数目安：10–30秒×1–3セット（体調に合わせて調整）</p></div></div></div></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 11'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            flex-direction: column;            background-color: #f5f9fc;            overflow: hidden;            position: relative;        }        .header {            padding: 30px 60px 20px 60px;        }        .title {            font-size: 42px;            font-weight: 700;            color: #1e88e5;            margin: 0;            border-left: 8px solid #4caf50;            padding-left: 20px;        }        .content-wrapper {            flex: 1;            display: flex;            padding: 0 60px 40px 60px;        }        .column {            flex: 1;            display: flex;            flex-direction: column;            padding: 0 20px;        }        .column-title {            font-size: 28px;            font-weight: 700;            color: #546e7a;            margin-bottom: 24px;            display: flex;            align-items: center;        }        .column-icon {            width: 50px;            height: 50px;            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            font-size: 24px;            color: white;            margin-right: 16px;        }        .left-color { background-color: #2196f3; }        .right-color { background-color: #ff9800; }        .content-box {            flex: 1;            background-color: white;            border-radius: 12px;            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);            padding: 24px;            display: flex;            flex-direction: column;        }        .step-item {            display: flex;            margin-bottom: 20px;            align-items: flex-start;        }        .step-number {            width: 36px;            height: 36px;            border-radius: 50%;            background-color: #2196f3;            color: white;            display: flex;            align-items: center;            justify-content: center;            font-size: 18px;            font-weight: 700;            margin-right: 16px;            flex-shrink: 0;        }        .step-text {            font-size: 18px;            line-height: 1.5;            display: flex;            align-items: center;        }        .point-item {            display: flex;            margin-bottom: 20px;            align-items: flex-start;        }        .point-icon {            width: 36px;            height: 36px;            border-radius: 50%;            background-color: #ff9800;            color: white;            display: flex;            align-items: center;            justify-content: center;            font-size: 18px;            margin-right: 16px;            flex-shrink: 0;        }        .point-text {            font-size: 18px;            line-height: 1.5;        }        .divider {            width: 1px;            background-color: #e0e0e0;            margin: 0 20px;        }        .footer-note {            background-color: #e8f5e9;            border-radius: 8px;            padding: 12px 16px;            margin-top: 20px;            display: flex;            align-items: center;        }        .note-icon {            color: #4caf50;            font-size: 22px;            margin-right: 12px;        }        .note-text {            font-size: 16px;            color: #2e7d32;        }
+</style>
