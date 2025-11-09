@@ -18,20 +18,20 @@
         <NuxtLink
           v-if="currentPage > 1"
           :to="`/slide/${slideId}/${currentPage - 1}`"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg transition-colors"
         >
           ← 前頁
         </NuxtLink>
         <div
           v-else
-          class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors opacity-50"
+          class="inline-block bg-gray-800 text-white px-4 py-3 rounded-lg transition-colors opacity-50"
         >
           ← 前頁
         </div>
       </div>
 
       <div
-        class="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors text-center"
+        class="inline-block bg-gray-900 text-white px-4 py-3 rounded-lg transition-colors text-center"
       >
         <span> [ {{ currentPage }} / {{ totalPages }} ]</span>
       </div>
@@ -40,13 +40,13 @@
         <NuxtLink
           v-if="currentPage < totalPages"
           :to="`/slide/${slideId}/${currentPage + 1}`"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg transition-colors"
         >
           次頁 →
         </NuxtLink>
         <div
           v-else
-          class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors opacity-50"
+          class="inline-block bg-gray-800 text-white px-4 py-3 rounded-lg transition-colors opacity-50"
         >
           次頁 →
         </div>
@@ -82,20 +82,20 @@
         <NuxtLink
           v-if="currentPage > 1"
           :to="`/slide/${slideId}/${currentPage - 1}`"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg transition-colors"
         >
           ← 前頁
         </NuxtLink>
         <div
           v-else
-          class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors  opacity-50"
+          class="inline-block bg-gray-800 text-white px-4 py-3 rounded-lg transition-colors  opacity-50"
         >
           ← 前頁
         </div>
       </div>
 
       <div
-        class="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors text-center"
+        class="inline-block bg-gray-900 text-white px-4 py-3 rounded-lg transition-colors text-center"
       >
         <span> [ {{ currentPage }} / {{ totalPages }} ]</span>
       </div>
@@ -104,13 +104,13 @@
         <NuxtLink
           v-if="currentPage < totalPages"
           :to="`/slide/${slideId}/${currentPage + 1}`"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg transition-colors"
         >
           次頁 →
         </NuxtLink>
         <div
           v-else
-          class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors  opacity-50"
+          class="inline-block bg-gray-800 text-white px-4 py-3 rounded-lg transition-colors  opacity-50"
         >
           次頁 →
         </div>
@@ -233,10 +233,13 @@ onMounted(() => {
   font-size: 16px;
 }
 
+.icon-toggle-button, .icon-fixed-nav-button {
+  transform: scale(0.95);
+}
+
 .icon-fixed-nav-button.is-active {
   background-color: #eee;
   @apply bg-orange-300 hover:bg-orange-400;
-  transform: scale(0.95);
 }
 
 .icon-fixed-nav-button.is-active i {
