@@ -22,6 +22,10 @@ onMounted(() => {
 </script>
 
 <style>
+.prose {
+  @apply text-gray-900 ;
+}
+
 .prose .slide-container{
   @apply rounded-sm;
   font-family: 'Noto Sans JP', sans-serif;
