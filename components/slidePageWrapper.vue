@@ -59,4 +59,26 @@ const props = defineProps<Props>()
 useHead({
   title: `${props.pageTitle}`
 })
+
+// キーボードイベントハンドラー
+const handleKeyDown = (event: KeyboardEvent) => {
+  // ← キーで前頁へ
+  if (event.key === 'ArrowLeft' && props.currentPage > 1) {
+    navigateTo(`/slide/${props.slideId}/${props.currentPage - 1}`)
+  }
+  // → キーで次頁へ
+  if (event.key === 'ArrowRight' && props.currentPage < props.totalPages) {
+    navigateTo(`/slide/${props.slideId}/${props.currentPage + 1}`)
+  }
+}
+
+// コンポーネントマウント時にイベントリスナーを追加
+onMounted(() => {
+  window.addEventListener('keydown', handleKeyDown)
+})
+
+// コンポーネントアンマウント時にイベントリスナーを削除
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeyDown)
+})
 </script>
