@@ -2,35 +2,40 @@
 
 ## スライド生成の3つの方法
 
+### 前提条件
+- `scripts/src/<slide_code>.tsv` ファイルが必要です
+- TSVファイルには `title`, `body`, `style` の3列が必要です
+- ページ数はTSVファイルのデータ行数から自動的に取得されます
+
 ### 1️⃣ npm script（最も簡単）
 
 ```bash
-npm run generate:slides MY_SLIDE 5
+npm run generate:slides MY_SLIDE
 ```
 
 ### 2️⃣ シェルスクリプト
 
 ```bash
-./generate-slides.sh MY_SLIDE 5
+./generate-slides.sh MY_SLIDE
 ```
 
 ### 3️⃣ Make
 
 ```bash
-make generate-slides SLIDE_CODE=MY_SLIDE PAGES=5
+make generate-slides SLIDE_CODE=MY_SLIDE
 ```
 
 ## 実行例
 
 ```bash
-# 例1: プロダクト紹介スライドを10ページ生成
-npm run generate:slides PRODUCT_INTRO 10
+# 例1: プロダクト紹介スライドを生成（TSVファイルから自動的にページ数を取得）
+npm run generate:slides PRODUCT_INTRO
 
-# 例2: チュートリアルスライドを7ページ生成
-npm run generate:slides TUTORIAL 7
+# 例2: チュートリアルスライドを生成
+npm run generate:slides TUTORIAL
 
-# 例3: 会社概要スライドを5ページ生成
-npm run generate:slides COMPANY_PROFILE 5
+# 例3: 会社概要スライドを生成
+npm run generate:slides COMPANY_PROFILE
 ```
 
 ## 生成後の確認
