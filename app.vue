@@ -23,7 +23,11 @@ onMounted(() => {
 
 <style>
 .prose {
-  @apply text-gray-900;
+  @apply text-gray-900 ;
+}
+
+.prose .slide-container{
+  @apply rounded-sm ;
 }
 
 .prose h2 {

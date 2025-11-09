@@ -85,7 +85,7 @@ function generateVueTemplate(slideCode, pageNumber, totalPages) {
 </style>
 
 <template>
-  <div class="min-h-screen bg-gray-900 text-white container">
+  <div class="min-h-screen bg-gray-900 text-white container px-4 py-4">
     <div class="prose prose-lg max-w-none">
 
 
@@ -100,14 +100,13 @@ function generateVueTemplate(slideCode, pageNumber, totalPages) {
           to="/slide/${slideCode}/${pageNumber - 1}"
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
         >
-          ← 前のページ
-        </NuxtLink>` : '<div class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors">← 前のページ</div>'}
+          ← 前頁
+        </NuxtLink>` : '<div class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors">← 前頁</div>'}
       </div>
 
       <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors text-center"
+        class="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors text-center"
       >
-        <span><code>${slideCode}</code><br /></span>
         <span> [ ${pageNumber} / ${totalPages} ]</span>
       </div>
 
@@ -116,8 +115,8 @@ function generateVueTemplate(slideCode, pageNumber, totalPages) {
           to="/slide/${slideCode}/${pageNumber + 1}"
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
         >
-          次のページ →
-        </NuxtLink>` : '<div class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors">次のページ →</div>'}
+          次頁 →
+        </NuxtLink>` : '<div class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors">次頁 →</div>'}
       </div>
     </div>
 

@@ -98,7 +98,7 @@
 </style>
 
 <template>
-  <div class="min-h-screen bg-gray-900 text-white container">
+  <div class="min-h-screen bg-gray-900 text-white container px-4 py-4">
     <div class="prose prose-lg max-w-none">
 
 <div class="slide-container">
@@ -168,14 +168,13 @@
           to="/slide/B0FPPSR9ZW/1"
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
         >
-          ← 前のページ
+          ← 前頁
         </NuxtLink>
       </div>
 
       <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors text-center"
+        class="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors text-center"
       >
-        <span><code>B0FPPSR9ZW</code><br /></span>
         <span> [ 2 / 20 ]</span>
       </div>
 
@@ -184,7 +183,7 @@
           to="/slide/B0FPPSR9ZW/3"
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
         >
-          次のページ →
+          次頁 →
         </NuxtLink>
       </div>
     </div>
