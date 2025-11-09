@@ -25,11 +25,16 @@
             :to="`/slide/${slide.slideCode}/1`"
             class="block"
           >
-            <div class="aspect-video bg-gray-700 relative overflow-hidden">
+            <div class="aspect-video bg-gray-700 relative overflow-hidden" :ref="el => { if (el) iframeContainers.push(el as HTMLElement) }">
               <iframe
                 :src="`${basePath}/slide/${slide.slideCode}/1`"
                 class="absolute inset-0 w-full h-full border-0 pointer-events-none"
-                style="transform: scale(0.4); transform-origin: 0 0; width: 400%; height: 400%;"
+                :style="{
+                  transform: `scale(${scaleRate})`,
+                  transformOrigin: '0 0',
+                  width: '400%',
+                  height: '400%'
+                }"
                 loading="lazy"
               />
               <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none"></div>
@@ -93,4 +98,38 @@ if (fetchResult.error.value && fetchResult.error.value.statusCode === 404) {
 }
 
 const { data: slides, pending, error } = fetchResult
+
+// iframeの幅を計測
+const iframeContainers = ref<HTMLElement[]>([])
+const iframeWidth = ref<number>(512) // デフォルト値（0.4 * 1280）
+
+// iframeの幅を計測してscaleRateを計算
+const scaleRate = computed(() => {
+  const rate = iframeWidth.value / 1280
+  // 小数点第3位を四捨五入して、小数点第2位までにする
+  return Math.round(rate * 100) / 100
+})
+
+// マウント時にiframeの幅を計測
+onMounted(() => {
+  const updateWidth = () => {
+    // 最初のiframeコンテナの幅を計測
+    if (iframeContainers.value.length > 0 && iframeContainers.value[0]) {
+      iframeWidth.value = iframeContainers.value[0].clientWidth
+    }
+  }
+  
+  // 初回計測（少し遅延させてDOMが完全にレンダリングされるのを待つ）
+  nextTick(() => {
+    updateWidth()
+  })
+  
+  // リサイズ時にも更新
+  window.addEventListener('resize', updateWidth)
+  
+  // クリーンアップ
+  onUnmounted(() => {
+    window.removeEventListener('resize', updateWidth)
+  })
+})
 </script>
