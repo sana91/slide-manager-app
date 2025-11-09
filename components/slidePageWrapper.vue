@@ -1,13 +1,17 @@
 <template>
   <div class="min-h-screen bg-gray-900 text-white container px-4 py-4">
-    <div class="prose prose-lg max-w-none"
-      :ref="el => { if (el) contentContainers.push(el as HTMLElement) }"
-      :style="fitScaleStyles"
-    >
-      <slot></slot>
+    <div class="mb-4 flex justify-start items-center">
+      <div>
+        <label for="isFixedSlideSize" class="text-gray-400">
+          <input type="checkbox" id="isFixedSlideSize"
+            v-model="isFixedSlideSize"
+            placeholder="スライドサイズを幅1280pxで固定" />
+          <span class="text-white"> スライドサイズを幅1280pxで固定</span>
+        </label>
+      </div>
     </div>
 
-    <div class="mt-8 flex justify-start items-center">
+    <div class="mb-8 flex justify-start items-center">
       <div>
         <NuxtLink
           v-if="currentPage > 1"
@@ -47,18 +51,19 @@
       </div>
     </div>
 
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <label for="is1280Size" class="text-gray-400">
-          <input type="checkbox" v-model="is1280Size" placeholder="1280サイズ固定" disabled />
-          <span class="text-white">1280サイズ固定 (デフォルト)</span>
-        </label>
-      </div>
+    <div class="prose prose-lg max-w-none"
+      :ref="el => { if (el) contentContainers.push(el as HTMLElement) }"
+      :style="fitScaleStyles"
+    >
+      <slot></slot>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+const { useCheckbox } = useCheckboxStore()
+const isFixedSlideSize = useCheckbox('is-fixed-slide-size')
+
 interface Props {
   slideId: string
   pageTitle: string
@@ -84,15 +89,13 @@ const handleKeyDown = (event: KeyboardEvent) => {
   }
 }
 
-const is1280Size = ref(true)
-
 // contentの幅を計測
 const contentContainers = ref<HTMLElement[]>([])
 const contentWidth = ref<number>(1280) // デフォルト値（1280）
 
 // contentの幅を計測してscaleRateを計算
 const fitScaleStyles = computed(() => {
-  if (is1280Size.value) {
+  if (isFixedSlideSize.value) {
     return ''
   }
   const rate = contentWidth.value / 1280
