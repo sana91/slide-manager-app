@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen bg-gray-900 text-white container px-4 py-4">
-    <div class="mb-4 flex justify-start items-center">
+    <div v-if="!invisibleNav" class="mb-4 flex justify-start items-center">
       <div>
         <label for="isFixedSlideSize" class="text-gray-400">
           <input type="checkbox" id="isFixedSlideSize"
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="mb-8 flex justify-start items-center">
+    <div v-if="!invisibleNav" class="mb-8 flex justify-start items-center">
       <div>
         <NuxtLink
           v-if="currentPage > 1"
@@ -58,7 +58,7 @@
       <slot></slot>
     </div>
 
-    <div class="mt-8 flex justify-start items-center">
+    <div v-if="!invisibleNav" class="mt-8 flex justify-start items-center">
       <div>
         <NuxtLink
           v-if="currentPage > 1"
@@ -102,6 +102,11 @@
 </template>
 
 <script setup lang="ts">
+// クエリパラメータを取得
+const route = useRoute()
+const invisibleNav = computed(() => route.query.invisible_navigation === '1')
+
+// LocalStrageとComposablesの値を取得
 const { useCheckbox } = useCheckboxStore()
 const isFixedSlideSize = useCheckbox('is-fixed-slide-size')
 

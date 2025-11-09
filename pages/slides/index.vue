@@ -27,7 +27,7 @@
           >
             <div class="aspect-video bg-gray-700 relative overflow-hidden" :ref="el => { if (el) iframeContainers.push(el as HTMLElement) }">
               <iframe
-                :src="`${basePath}/slide/${slide.slideCode}/1`"
+                :src="`${basePath}/slide/${slide.slideCode}/1?invisible_navigation=1`"
                 class="absolute inset-0 w-full h-full border-0 pointer-events-none"
                 :style="{
                   transform: `scale(${scaleRate})`,
