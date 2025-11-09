@@ -1,0 +1,9 @@
+<template>
+  <SlidePageWrapper slide-id="B07NDW68MK" page-title="世界最強記憶術 場所法" :current-page="1" :total-pages="20">
+<div class="slide-container"><div class="memory-lines"></div><div class="memory-lines" style="width: 400px; height: 400px;"></div><div class="memory-lines" style="width: 200px; height: 200px;"></div><div class="brain-icon"><i class="fas fa-brain"></i></div><div class="title-box"><div class="mb-4"><p class="text-4xl font-bold text-blue-900">世界最強記憶術</p><p class="text-6xl font-bold text-blue-900 mt-4">場所法</p></div><div class="mt-6"><p class="text-2xl">誰でも使える「覚えるワザ」の決定版</p></div></div><div class="author-box"><p class="text-2xl font-bold mb-2">著者：平田 直也</p><p class="text-xl mt-4">本資料：書籍要約スライド（20ページ）</p><p class="text-lg mt-3">場所法を中心に、ストーリー法・タグ付け法・変換術を体系的に学ぶ</p></div></div>
+  </SlidePageWrapper>
+</template>
+
+<style scoped>
+body {      font-family: 'Noto Sans JP', sans-serif;      margin: 0;      padding: 0;    }    .slide-container {      width: 1280px;      min-height: 720px;      display: flex;      flex-direction: column;      justify-content: space-between;      background-color: white;      color: #1a365d;      padding: 40px;      position: relative;      overflow: hidden;    }    .brain-icon {      font-size: 120px;      color: rgba(26, 54, 93, 0.08);      position: absolute;      top: 50%;      left: 50%;      transform: translate(-50%, -50%);      z-index: 0;    }    .memory-lines {      position: absolute;      width: 600px;      height: 600px;      border-radius: 50%;      border: 2px dashed rgba(26, 54, 93, 0.1);      top: 50%;      left: 50%;      transform: translate(-50%, -50%);      z-index: 0;    }    .title-box {      position: relative;      z-index: 1;      text-align: center;      padding-top: 160px;    }    .author-box {      position: relative;      z-index: 1;      text-align: center;      padding-bottom: 120px;    }
+</style>

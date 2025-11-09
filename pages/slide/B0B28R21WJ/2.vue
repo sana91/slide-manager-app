@@ -1,0 +1,9 @@
+<template>
+  <SlidePageWrapper slide-id="B0B28R21WJ" page-title="書籍概要・背景・対象読者" :current-page="2" :total-pages="20">
+<div class="slide flex"><!-- 左側セクション --><div class="slide-left w-1/3 flex flex-col justify-center items-center p-10"><div class="section-number text-6xl mb-4">02</div><h2 class="title text-3xl text-center">書籍概要・背景・対象読者</h2><div class="accent-line mt-6"></div></div><!-- 右側セクション --><div class="w-2/3 flex flex-col justify-center p-10"><div class="mb-8"><h3 class="content-heading text-xl mb-2">テーマ</h3><p class="text-gray-800">「めんどくさい」の正体を脳科学で解明し、行動に直結させる方法</p></div><div class="mb-8"><h3 class="content-heading text-xl mb-2">背景</h3><p class="text-gray-800">医療現場・企業研修で検証された実践知を一般化</p></div><div class="mb-8"><h3 class="content-heading text-xl mb-2">対象読者</h3><p class="text-gray-800">先延ばしに悩むビジネスパーソン/主婦/学生/全ての生活者</p></div><div><h3 class="content-heading text-xl mb-3">本書で得られる変化</h3><ul class="list-disc pl-6 text-gray-800"><li class="mb-2"><p>やる気に頼らず動ける</p></li><li class="mb-2"><p>行動を自動化する環境・命令設計ができる</p></li><li><p>仕事・家事・人間関係の摩擦が減る</p></li></ul></div></div></div>
+  </SlidePageWrapper>
+</template>
+
+<style scoped>
+body {        margin: 0;        padding: 0;        font-family: 'Noto Sans JP', sans-serif;    }    .slide {        width: 1280px;        min-height: 720px;        overflow: hidden;        position: relative;        background-color: #f8f9fa;    }    .slide-left {        background-color: #edf2f7;    }    .title {        font-family: 'M PLUS Rounded 1c', sans-serif;        color: #2c5282;        font-weight: 700;    }    .section-number {        font-family: 'M PLUS Rounded 1c', sans-serif;        color: #3182ce;        font-weight: 800;    }    .content-heading {        font-weight: 700;        color: #3182ce;    }    .accent-line {        width: 60px;        height: 4px;        background-color: #3182ce;    }
+</style>
