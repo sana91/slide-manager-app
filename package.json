@@ -8,6 +8,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "generate:slides": "node scripts/generate-slides.cjs",
+    "generate:missing": "node scripts/generate-missing-slides.cjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
