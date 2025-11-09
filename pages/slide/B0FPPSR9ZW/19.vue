@@ -1,50 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/18"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 19 / 20 ]</span>
-      </div>
-
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/20"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次のページ →
-        </NuxtLink>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="用語集（主要キーワード）" :current-page="19" :total-pages="20">
+<div class='slide-container'><div class='header'><p class='title'>用語集（主要キーワード）</p></div><div class='content-wrapper'><div class='column'><div class='column-title'><div class='column-icon left-color'><i class='fas fa-book'></i></div><p>用語</p></div><div class='content-box'><div class='term-item'><div class='term-icon'><i class='fas fa-running'></i></div><p class='term-text'>行動体力</p></div><div class='term-item'><div class='term-icon'><i class='fas fa-shield-alt'></i></div><p class='term-text'>防衛体力</p></div><div class='term-item'><div class='term-icon'><i class='fas fa-bolt'></i></div><p class='term-text'>HIIT／イージーHIIT</p></div><div class='term-item'><div class='term-icon'><i class='fas fa-brain'></i></div><p class='term-text'>BDNF</p></div><div class='term-item'><div class='term-icon'><i class='fas fa-user-injured'></i></div><p class='term-text'>サルコペニア</p></div><div class='term-item'><div class='term-icon'><i class='fas fa-heart'></i></div><p class='term-text'>QOL</p></div><div class='term-item'><div class='term-icon'><i class='fas fa-dumbbell'></i></div><p class='term-text'>運動耐容能</p></div><div class='term-item'><div class='term-icon'><i class='fas fa-piggy-bank'></i></div><p class='term-text'>貯筋</p></div><div class='term-item'><div class='term-icon'><i class='fas fa-bed'></i></div><p class='term-text'>リカバリー</p></div></div></div><div class='divider'></div><div class='column'><div class='column-title'><div class='column-icon right-color'><i class='fas fa-info-circle'></i></div><p>定義</p></div><div class='content-box'><div class='def-item'><div class='def-icon'><i class='fas fa-check'></i></div><p class='def-text'>動ける力（筋力・持久力・柔軟性・バランス など）</p></div><div class='def-item'><div class='def-icon'><i class='fas fa-check'></i></div><p class='def-text'>体を守る力（免疫・回復・睡眠・ストレス耐性）</p></div><div class='def-item'><div class='def-icon'><i class='fas fa-check'></i></div><p class='def-text'>高強度インターバル／やさしい設計の短時間版</p></div><div class='def-item'><div class='def-icon'><i class='fas fa-check'></i></div><p class='def-text'>脳由来神経栄養因子（学習・気分に寄与）</p></div><div class='def-item'><div class='def-icon'><i class='fas fa-check'></i></div><p class='def-text'>加齢性の筋量・筋力低下</p></div><div class='def-item'><div class='def-icon'><i class='fas fa-check'></i></div><p class='def-text'>生活の質</p></div><div class='def-item'><div class='def-icon'><i class='fas fa-check'></i></div><p class='def-text'>体に無理なく運動を続けられる能力</p></div><div class='def-item'><div class='def-icon'><i class='fas fa-check'></i></div><p class='def-text'>筋肉を資産のように蓄える考え方</p></div><div class='def-item'><div class='def-icon'><i class='fas fa-check'></i></div><p class='def-text'>休養・入浴・睡眠・呼吸などの回復行動</p></div></div></div></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 19'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            flex-direction: column;            background-color: #f5f9fc;            overflow: hidden;            position: relative;        }        .header {            padding: 30px 60px 20px 60px;        }        .title {            font-size: 42px;            font-weight: 700;            color: #1e88e5;            margin: 0;            border-left: 8px solid #4caf50;            padding-left: 20px;        }        .content-wrapper {            flex: 1;            display: flex;            padding: 0 60px 40px 60px;        }        .column {            flex: 1;            display: flex;            flex-direction: column;            padding: 0 20px;        }        .column-title {            font-size: 28px;            font-weight: 700;            color: #546e7a;            margin-bottom: 24px;            display: flex;            align-items: center;        }        .column-icon {            width: 50px;            height: 50px;            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            font-size: 24px;            color: white;            margin-right: 16px;        }        .left-color { background-color: #2196f3; }        .right-color { background-color: #ff9800; }        .content-box {            flex: 1;            background-color: white;            border-radius: 12px;            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);            padding: 24px;            display: flex;            flex-direction: column;        }        .term-item {            display: flex;            margin-bottom: 16px;            align-items: flex-start;        }        .term-icon {            width: 36px;            height: 36px;            border-radius: 50%;            background-color: #2196f3;            color: white;            display: flex;            align-items: center;            justify-content: center;            font-size: 18px;            font-weight: 700;            margin-right: 16px;            flex-shrink: 0;        }        .term-text {            font-size: 20px;            line-height: 1.5;            font-weight: 500;            display: flex;            align-items: center;        }        .def-item {            display: flex;            margin-bottom: 16px;            align-items: flex-start;        }        .def-icon {            width: 36px;            height: 36px;            border-radius: 50%;            background-color: #ff9800;            color: white;            display: flex;            align-items: center;            justify-content: center;            font-size: 18px;            margin-right: 16px;            flex-shrink: 0;        }        .def-text {            font-size: 18px;            line-height: 1.5;        }        .divider {            width: 1px;            background-color: #e0e0e0;            margin: 0 20px;        }        .footer-note {            background-color: #e8f5e9;            border-radius: 8px;            padding: 12px 16px;            margin-top: 20px;            display: flex;            align-items: center;        }        .note-icon {            color: #4caf50;            font-size: 22px;            margin-right: 12px;        }        .note-text {            font-size: 16px;            color: #2e7d32;        }
+</style>

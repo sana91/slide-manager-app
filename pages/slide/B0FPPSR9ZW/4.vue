@@ -1,50 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/3"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 4 / 20 ]</span>
-      </div>
-
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/5"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次のページ →
-        </NuxtLink>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="体力の正体：行動体力 × 防衛体力" :current-page="4" :total-pages="20">
+<div class='slide-container'><div class='decoration decoration-top-right'></div><div class='decoration decoration-bottom-left'></div><div class='content-wrapper'><div class='header'><p class='title'>体力の正体：行動体力 × 防衛体力</p><p class='subtitle'>2つの軸で理解する総合的な体力の本質</p></div><div class='content-section'><div class='bullet-item'><div class='bullet-icon accent-color-1'><i class='fas fa-running'></i></div><div class='bullet-text'><p class='bullet-title'>行動体力</p><p class='bullet-desc'>筋力・筋持久力・心肺持久力・柔軟性・バランス能力・敏捷性など、日常生活や運動に必要な「動ける力」</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-2'><i class='fas fa-shield-alt'></i></div><div class='bullet-text'><p class='bullet-title'>防衛体力</p><p class='bullet-desc'>免疫力・回復力・睡眠の質・ストレス耐性・自律神経バランスなど、体を守り疲労から回復させる「守る力」</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-3'><i class='fas fa-balance-scale'></i></div><div class='bullet-text'><p class='bullet-title'>バランスの重要性</p><p class='bullet-desc'>どちらか一方だけでは真の体力おばけにはなれない。両輪のバランスが取れてこそ、疲れにくい体と心を手に入れられる</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-4'><i class='fas fa-search'></i></div><div class='bullet-text'><p class='bullet-title'>見える化</p><p class='bullet-desc'>セルフチェック例：30秒間の椅子立ち上がり回数、片脚立ち時間、10分間歩行の歩数、朝の疲労感スコアなど</p></div></div></div></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 4'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            background-color: #f5f9fc;            overflow: hidden;            position: relative;        }        .content-wrapper {            flex: 1;            display: flex;            flex-direction: column;            padding: 60px;            z-index: 2;        }        .header {            margin-bottom: 40px;        }        .title {            font-size: 42px;            font-weight: 700;            color: #1e88e5;            margin-bottom: 10px;        }        .subtitle {            font-size: 24px;            font-weight: 500;            color: #546e7a;        }        .content-section {            display: flex;            flex-direction: column;            gap: 24px;        }        .bullet-item {            display: flex;            align-items: flex-start;            gap: 16px;        }        .bullet-icon {            flex-shrink: 0;            width: 46px;            height: 46px;            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            font-size: 20px;            color: white;        }        .bullet-text {            flex: 1;        }        .bullet-title {            font-size: 22px;            font-weight: 700;            margin-bottom: 6px;        }        .bullet-desc {            font-size: 18px;            font-weight: 400;            line-height: 1.5;        }        .accent-color-1 { background-color: #4caf50; }        .accent-color-2 { background-color: #2196f3; }        .accent-color-3 { background-color: #ff9800; }        .accent-color-4 { background-color: #9c27b0; }        .accent-color-5 { background-color: #e91e63; }        .decoration {            position: absolute;            z-index: 1;        }        .decoration-top-right {            top: -80px;            right: -80px;            width: 200px;            height: 200px;            border-radius: 50%;            background-color: rgba(33, 150, 243, 0.1);        }        .decoration-bottom-left {            bottom: -100px;            left: -100px;            width: 300px;            height: 300px;            border-radius: 50%;            background-color: rgba(76, 175, 80, 0.1);        }
+</style>

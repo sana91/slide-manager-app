@@ -5,50 +5,72 @@
 ## 方法1: npm script（推奨）
 
 ```bash
-npm run generate:slides <slide_code> <page_count>
+npm run generate:slides <slide_code>
 ```
+
+### 前提条件
+- `scripts/src/<slide_code>.tsv` ファイルが存在すること
+- TSVファイルには以下の列が必要: `title`, `body`, `style`
+- ヘッダー行を含む必要があります
 
 ### 例
 ```bash
-# MY_SLIDEという名前で5ページのスライドを生成
-npm run generate:slides MY_SLIDE 5
+# MY_SLIDEという名前のスライドを生成（TSVファイルから自動的にページ数を取得）
+npm run generate:slides MY_SLIDE
 
-# PRODUCT_INTROという名前で10ページのスライドを生成
-npm run generate:slides PRODUCT_INTRO 10
+# PRODUCT_INTROという名前のスライドを生成
+npm run generate:slides PRODUCT_INTRO
 ```
 
 ## 方法2: シェルスクリプト
 
 ```bash
-./generate-slides.sh <slide_code> <page_count>
+./generate-slides.sh <slide_code>
 ```
 
 ### 例
 ```bash
-./generate-slides.sh MY_SLIDE 5
+./generate-slides.sh MY_SLIDE
 ```
 
 ## 方法3: Makefile
 
 ```bash
-make generate-slides SLIDE_CODE=<code> PAGES=<count>
+make generate-slides SLIDE_CODE=<code>
 ```
 
 ### 例
 ```bash
-make generate-slides SLIDE_CODE=MY_SLIDE PAGES=5
+make generate-slides SLIDE_CODE=MY_SLIDE
 ```
 
 ## 方法4: Node.jsスクリプト直接実行
 
 ```bash
-node scripts/generate-slides.js <slide_code> <page_count>
+node scripts/generate-slides.cjs <slide_code>
 ```
 
 ### 例
 ```bash
-node scripts/generate-slides.js MY_SLIDE 5
+node scripts/generate-slides.cjs MY_SLIDE
 ```
+
+## TSVファイルの形式
+
+スライドを生成するには、`scripts/src/<slide_code>.tsv` ファイルが必要です。
+
+### TSVファイルの構造
+
+```tsv
+title	body	style
+ページ1のタイトル	<div>ページ1のコンテンツ</div>	/* ページ1のスタイル */
+ページ2のタイトル	<div>ページ2のコンテンツ</div>	/* ページ2のスタイル */
+ページ3のタイトル	<div>ページ3のコンテンツ</div>	/* ページ3のスタイル */
+```
+
+- **ヘッダー行**: `title`, `body`, `style` の3列が必要
+- **データ行**: 各行が1ページに対応
+- **ページ数**: データ行の数が自動的にページ数として使用されます
 
 ## 生成されるもの
 
@@ -60,7 +82,7 @@ pages/slide/<slide_code>/
 ├── 2.vue
 ├── 3.vue
 ├── ...
-└── <page_count>.vue
+└── <n>.vue  (TSVファイルのデータ行数に応じて自動生成)
 ```
 
 ### 生成されるファイルの特徴
@@ -107,12 +129,20 @@ vim pages/slide/MY_SLIDE/1.vue
 
 ## トラブルシューティング
 
-### エラー: SLIDE_CODE cannot be empty
+### エラー: slide_code cannot be empty
 - スライドコードが指定されていません
 - 引数を正しく指定してください
 
-### エラー: page_count must be a positive number
-- ページ数は1以上の整数を指定してください
+### エラー: TSV file not found
+- `scripts/src/<slide_code>.tsv` ファイルが存在しません
+- TSVファイルを作成してから実行してください
+
+### エラー: TSV file must have "title", "body", and "style" columns
+- TSVファイルのヘッダー行に `title`, `body`, `style` の3列が必要です
+- ヘッダー行を確認してください
+
+### エラー: TSV file must have at least a header row and one data row
+- TSVファイルにはヘッダー行と少なくとも1行のデータ行が必要です
 
 ### Permission denied
 - シェルスクリプトに実行権限がない場合：

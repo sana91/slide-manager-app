@@ -1,50 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/15"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 16 / 20 ]</span>
-      </div>
-
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/17"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次のページ →
-        </NuxtLink>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="30日実践プログラム（体力おばけへの道シート）" :current-page="16" :total-pages="20">
+<div class='slide-container'><div class='header'><p class='title'>30日実践プログラム（体力おばけへの道シート）</p></div><div class='content-wrapper'><div class='column'><div class='column-title'><div class='column-icon left-color'><i class='fas fa-calendar-alt'></i></div><p>設計</p></div><div class='content-box'><div class='phase-box'><p class='phase-title'>Day 1–10：初級フェーズ</p><p class='step-text'>3種目×10秒×1–3セット</p><div class='progress-indicator'><div class='progress-bar progress-1'></div></div></div><div class='phase-box'><p class='phase-title'>Day 11–20：中級フェーズ</p><p class='step-text'>3種目×20秒×1–3セット</p><div class='progress-indicator'><div class='progress-bar progress-2'></div></div></div><div class='phase-box'><p class='phase-title'>Day 21–30：上級フェーズ</p><p class='step-text'>3種目×30秒×1–3セット</p><div class='progress-indicator'><div class='progress-bar progress-3'></div></div></div><div class='footer-note'><div class='note-icon'><i class='fas fa-heart-rate'></i></div><p class='note-text'>強度指標：RPE'ややきつい'と感じたら止める</p></div></div></div><div class='divider'></div><div class='column'><div class='column-title'><div class='column-icon right-color'><i class='fas fa-clipboard-check'></i></div><p>運用・記録方法</p></div><div class='content-box'><div class='point-item'><div class='point-icon'><i class='fas fa-check-square'></i></div><p class='point-text'>毎日チェック欄に✓をつけ、気づきや体調をメモする</p></div><div class='point-item'><div class='point-icon'><i class='fas fa-undo-alt'></i></div><p class='point-text'>中断した場合は一時的に前のフェーズに戻り再開</p></div><div class='point-item'><div class='point-icon'><i class='fas fa-calendar-week'></i></div><p class='point-text'>週末に週間の合計時間と体調の変化を振り返る</p></div><div class='point-item'><div class='point-icon'><i class='fas fa-chart-line'></i></div><p class='point-text'>30日後の変化を記録し、次の30日計画を立てる</p></div><div class='footer-note'><div class='note-icon'><i class='fas fa-star'></i></div><p class='note-text'>小さな成功を祝福し、達成感を積み重ねることが継続の鍵</p></div></div></div></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 16'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            flex-direction: column;            background-color: #f5f9fc;            overflow: hidden;            position: relative;        }        .header {            padding: 30px 60px 20px 60px;        }        .title {            font-size: 42px;            font-weight: 700;            color: #1e88e5;            margin: 0;            border-left: 8px solid #4caf50;            padding-left: 20px;        }        .content-wrapper {            flex: 1;            display: flex;            padding: 0 60px 40px 60px;        }        .column {            flex: 1;            display: flex;            flex-direction: column;            padding: 0 20px;        }        .column-title {            font-size: 28px;            font-weight: 700;            color: #546e7a;            margin-bottom: 24px;            display: flex;            align-items: center;        }        .column-icon {            width: 50px;            height: 50px;            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            font-size: 24px;            color: white;            margin-right: 16px;        }        .left-color { background-color: #2196f3; }        .right-color { background-color: #ff9800; }        .content-box {            flex: 1;            background-color: white;            border-radius: 12px;            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);            padding: 24px;            display: flex;            flex-direction: column;        }        .step-item {            display: flex;            margin-bottom: 20px;            align-items: flex-start;        }        .step-number {            width: 36px;            height: 36px;            border-radius: 50%;            background-color: #2196f3;            color: white;            display: flex;            align-items: center;            justify-content: center;            font-size: 18px;            font-weight: 700;            margin-right: 16px;            flex-shrink: 0;        }        .step-text {            font-size: 18px;            line-height: 1.5;            display: flex;            align-items: center;        }        .point-item {            display: flex;            margin-bottom: 20px;            align-items: flex-start;        }        .point-icon {            width: 36px;            height: 36px;            border-radius: 50%;            background-color: #ff9800;            color: white;            display: flex;            align-items: center;            justify-content: center;            font-size: 18px;            margin-right: 16px;            flex-shrink: 0;        }        .point-text {            font-size: 18px;            line-height: 1.5;        }        .divider {            width: 1px;            background-color: #e0e0e0;            margin: 0 20px;        }        .footer-note {            background-color: #e8f5e9;            border-radius: 8px;            padding: 12px 16px;            margin-top: 20px;            display: flex;            align-items: center;        }        .note-icon {            color: #4caf50;            font-size: 22px;            margin-right: 12px;        }        .note-text {            font-size: 16px;            color: #2e7d32;        }        .phase-box {            background-color: #e3f2fd;            border-radius: 8px;            padding: 16px;            margin-bottom: 16px;            border-left: 4px solid #1976d2;        }        .phase-title {            font-weight: 700;            font-size: 20px;            color: #1976d2;            margin: 0 0 10px 0;        }        .progress-indicator {            width: 100%;            height: 8px;            background-color: #e0e0e0;            border-radius: 4px;            margin-top: 10px;        }        .progress-bar {            height: 100%;            border-radius: 4px;        }        .progress-1 {            width: 33%;            background-color: #81d4fa;        }        .progress-2 {            width: 67%;            background-color: #29b6f6;        }        .progress-3 {            width: 100%;            background-color: #0288d1;        }
+</style>

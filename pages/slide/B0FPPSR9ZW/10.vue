@@ -1,50 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/9"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 10 / 20 ]</span>
-      </div>
-
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/11"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次のページ →
-        </NuxtLink>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="第8章：3つの運動の柱（概要）" :current-page="10" :total-pages="20">
+<div class='slide-container'><div class='content-wrapper'><div class='header'><p class='title'>第8章：3つの運動の柱（概要）</p><p class='subtitle'>運動は'種類'と'組み合わせ'でさらに効果的に</p></div><div class='pillar-container'><div class='pillar-item'><div class='pillar-icon accent-color-1'><i class='fas fa-dumbbell'></i></div><p class='pillar-title'>筋トレ</p><p class='pillar-desc'>下半身中心の全身連動で基礎体力を底上げ。姿勢改善、代謝アップにも効果的。</p><div class='pillar-bg accent-color-1'></div></div><div class='pillar-item'><div class='pillar-icon accent-color-2'><i class='fas fa-running'></i></div><p class='pillar-title'>有酸素運動</p><p class='pillar-desc'>こまめな歩行・階段・ステップ＋短時間インターバルで心肺機能を高める。</p><div class='pillar-bg accent-color-2'></div></div><div class='pillar-item'><div class='pillar-icon accent-color-3'><i class='fas fa-child'></i></div><p class='pillar-title'>ストレッチ</p><p class='pillar-desc'>毎日短時間・痛気持ちいい範囲で継続。柔軟性向上と疲労回復を促進。</p><div class='pillar-bg accent-color-3'></div></div></div><div class='footer-note'><div class='note-icon'><i class='fas fa-lightbulb'></i></div><p class='note-text'>イージーHIIT：3つの柱を組み合わせた短時間・高効率のトレーニング法。時間がなくても効果的に体力向上できる方法です。</p></div></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 10'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            background-color: #f0f8ff;            overflow: hidden;            position: relative;        }        .content-wrapper {            flex: 1;            display: flex;            flex-direction: column;            padding: 50px 70px;            z-index: 2;        }        .header {            margin-bottom: 40px;            border-left: 10px solid #1e88e5;            padding-left: 25px;        }        .title {            font-size: 50px;            font-weight: 900;            color: #1e88e5;            margin-bottom: 15px;            line-height: 1.2;        }        .subtitle {            font-size: 24px;            font-weight: 500;            color: #546e7a;        }        .pillar-container {            display: flex;            justify-content: space-between;            margin-top: 30px;            height: 380px;        }        .pillar-item {            flex: 1;            display: flex;            flex-direction: column;            align-items: center;            background-color: white;            margin: 0 15px;            border-radius: 15px;            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);            padding: 25px;            position: relative;            overflow: hidden;        }        .pillar-icon {            width: 90px;            height: 90px;            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            font-size: 40px;            color: white;            margin-bottom: 20px;            z-index: 2;        }        .pillar-title {            font-size: 26px;            font-weight: 700;            margin-bottom: 15px;            text-align: center;            z-index: 2;        }        .pillar-desc {            font-size: 18px;            line-height: 1.5;            text-align: center;            z-index: 2;        }        .accent-color-1 { background-color: #4caf50; }        .accent-color-2 { background-color: #2196f3; }        .accent-color-3 { background-color: #ff9800; }        .pillar-bg {            position: absolute;            bottom: 0;            left: 0;            width: 100%;            height: 8px;        }        .footer-note {            margin-top: 40px;            background-color: #e8f5fe;            border-radius: 10px;            padding: 15px 25px;            display: flex;            align-items: center;        }        .note-icon {            font-size: 28px;            color: #1e88e5;            margin-right: 20px;        }        .note-text {            font-size: 18px;            line-height: 1.5;            color: #546e7a;        }
+</style>

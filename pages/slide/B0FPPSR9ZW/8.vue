@@ -1,50 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/7"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 8 / 20 ]</span>
-      </div>
-
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/9"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次のページ →
-        </NuxtLink>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="第6章：体力を見える化する" :current-page="8" :total-pages="20">
+<div class='slide-container'><div class='decoration decoration-top-right'></div><div class='decoration decoration-bottom-left'></div><div class='content-wrapper'><div class='header'><p class='title'>第6章：体力を見える化する</p><p class='subtitle'>数値化して成長を実感・継続のモチベーションに</p></div><div class='content-section'><div class='bullet-item'><div class='bullet-icon accent-color-1'><i class='fas fa-chart-line'></i></div><div class='bullet-text'><p class='bullet-title'>指標例</p><p class='bullet-desc'>歩数／RPE（主観的きつさ）／心拍／睡眠時間と質</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-2'><i class='fas fa-clipboard-check'></i></div><div class='bullet-text'><p class='bullet-title'>テスト例</p><p class='bullet-desc'>30秒椅子立ち回数、片脚立ち、10分ウォーク</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-3'><i class='fas fa-calendar-check'></i></div><div class='bullet-text'><p class='bullet-title'>週次レビュー</p><p class='bullet-desc'>数値→振り返り→次週の微調整</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-4'><i class='fas fa-eye'></i></div><div class='bullet-text'><p class='bullet-title'>見える化のパワー</p><p class='bullet-desc'>見える化が継続のドライバーになる</p></div></div></div></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 8'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            background-color: #f5f9fc;            overflow: hidden;            position: relative;        }        .content-wrapper {            flex: 1;            display: flex;            flex-direction: column;            padding: 60px;            z-index: 2;        }        .header {            margin-bottom: 40px;        }        .title {            font-size: 42px;            font-weight: 700;            color: #1e88e5;            margin-bottom: 10px;        }        .subtitle {            font-size: 24px;            font-weight: 500;            color: #546e7a;        }        .content-section {            display: flex;            flex-direction: column;            gap: 24px;        }        .bullet-item {            display: flex;            align-items: flex-start;            gap: 16px;        }        .bullet-icon {            flex-shrink: 0;            width: 46px;            height: 46px;            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            font-size: 20px;            color: white;        }        .bullet-text {            flex: 1;        }        .bullet-title {            font-size: 22px;            font-weight: 700;            margin-bottom: 6px;        }        .bullet-desc {            font-size: 18px;            font-weight: 400;            line-height: 1.5;        }        .accent-color-1 { background-color: #4caf50; }        .accent-color-2 { background-color: #2196f3; }        .accent-color-3 { background-color: #ff9800; }        .accent-color-4 { background-color: #9c27b0; }        .decoration {            position: absolute;            z-index: 1;        }        .decoration-top-right {            top: -80px;            right: -80px;            width: 200px;            height: 200px;            border-radius: 50%;            background-color: rgba(33, 150, 243, 0.1);        }        .decoration-bottom-left {            bottom: -100px;            left: -100px;            width: 300px;            height: 300px;            border-radius: 50%;            background-color: rgba(76, 175, 80, 0.1);        }
+</style>

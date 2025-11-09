@@ -28,6 +28,7 @@ onMounted(() => {
 
 .prose .slide-container{
   @apply rounded-sm ;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .prose h2 {

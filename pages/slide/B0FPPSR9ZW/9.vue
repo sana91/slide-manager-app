@@ -1,50 +1,9 @@
-<style scoped>
-
-
-</style>
-
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
-    <div class="prose prose-lg max-w-none">
-
-
-
-
-
-    </div>
-
-    <div class="mt-8 flex justify-start items-center">
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/8"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          ← 前のページ
-        </NuxtLink>
-      </div>
-
-      <div
-        class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors"
-      >
-        <span><code>B0FPPSR9ZW</code>: </span>
-        <span> [ 9 / 20 ]</span>
-      </div>
-
-      <div>
-        <NuxtLink
-          to="/slide/B0FPPSR9ZW/10"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-        >
-          次のページ →
-        </NuxtLink>
-      </div>
-    </div>
-
-  </div>
+  <SlidePageWrapper slide-id="B0FPPSR9ZW" page-title="第7章：怪我を防ぐ・安全に続ける" :current-page="9" :total-pages="20">
+<div class='slide-container'><div class='decoration decoration-top-right'></div><div class='decoration decoration-bottom-left'></div><div class='content-wrapper'><div class='header'><p class='title'>第7章：怪我を防ぐ・安全に続ける</p><p class='subtitle'>安全第一で体力アップを継続するための工夫</p></div><div class='content-section'><div class='bullet-item'><div class='bullet-icon accent-color-1'><i class='fas fa-clock'></i></div><div class='bullet-text'><p class='bullet-title'>適切な順序を守る</p><p class='bullet-desc'>ウォームアップ → 本セット → クールダウンの流れを必ず確保。特に初心者は準備運動と整理運動を丁寧に。</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-2'><i class='fas fa-exclamation-triangle'></i></div><div class='bullet-text'><p class='bullet-title'>痛みのサインを見逃さない</p><p class='bullet-desc'>痛みが出たら即中止。「違和感」を感じたら強度を下げる。無理をしないことが継続の秘訣。</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-3'><i class='fas fa-chart-line'></i></div><div class='bullet-text'><p class='bullet-title'>負荷は漸進的に</p><p class='bullet-desc'>量・深さ・スピード・不安定性のいずれか「1つだけ」を変えて進める。複数同時に変えると怪我のリスク増。</p></div></div><div class='bullet-item'><div class='bullet-icon accent-color-4'><i class='fas fa-user-md'></i></div><div class='bullet-text'><p class='bullet-title'>医師相談とエゴを手放す</p><p class='bullet-desc'>既往症・服薬がある場合は医師に相談。正しいフォーム優先で見栄（エゴ）は捨てる。安全性が継続の基盤。</p></div></div></div></div></div>
+  </SlidePageWrapper>
 </template>
 
-<script setup lang="ts">
-useHead({
-  title: 'B0FPPSR9ZW - ページ 9'
-})
-</script>
+<style scoped>
+body, html {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;            color: #333;        }        .slide-container {            width: 1280px;            min-height: 720px;            display: flex;            background-color: #f5f9fc;            overflow: hidden;            position: relative;        }        .content-wrapper {            flex: 1;            display: flex;            flex-direction: column;            padding: 60px;            z-index: 2;        }        .header {            margin-bottom: 40px;        }        .title {            font-size: 42px;            font-weight: 700;            color: #1e88e5;            margin-bottom: 10px;        }        .subtitle {            font-size: 24px;            font-weight: 500;            color: #546e7a;        }        .content-section {            display: flex;            flex-direction: column;            gap: 24px;        }        .bullet-item {            display: flex;            align-items: flex-start;            gap: 16px;        }        .bullet-icon {            flex-shrink: 0;            width: 46px;            height: 46px;            border-radius: 50%;            display: flex;            align-items: center;            justify-content: center;            font-size: 20px;            color: white;        }        .bullet-text {            flex: 1;        }        .bullet-title {            font-size: 22px;            font-weight: 700;            margin-bottom: 6px;        }        .bullet-desc {            font-size: 18px;            font-weight: 400;            line-height: 1.5;        }        .accent-color-1 { background-color: #4caf50; }        .accent-color-2 { background-color: #2196f3; }        .accent-color-3 { background-color: #ff9800; }        .accent-color-4 { background-color: #9c27b0; }        .decoration {            position: absolute;            z-index: 1;        }        .decoration-top-right {            top: -80px;            right: -80px;            width: 200px;            height: 200px;            border-radius: 50%;            background-color: rgba(33, 150, 243, 0.1);        }        .decoration-bottom-left {            bottom: -100px;            left: -100px;            width: 300px;            height: 300px;            border-radius: 50%;            background-color: rgba(76, 175, 80, 0.1);        }
+</style>
