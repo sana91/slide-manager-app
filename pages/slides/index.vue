@@ -27,7 +27,7 @@
           >
             <div class="aspect-video bg-gray-700 relative overflow-hidden">
               <iframe
-                :src="`/slide/${slide.slideCode}/1`"
+                :src="`${basePath}/slide/${slide.slideCode}/1`"
                 class="absolute inset-0 w-full h-full border-0 pointer-events-none"
                 style="transform: scale(0.4); transform-origin: 0 0; width: 400%; height: 400%;"
                 loading="lazy"
@@ -57,6 +57,27 @@ interface SlideInfo {
   slideCode: string
   title: string
 }
+
+// ベースパスを動的に取得
+const basePath = computed(() => {
+  if (import.meta.client && typeof window !== 'undefined') {
+    // クライアント側: window.location.pathnameからベースパスを取得
+    const pathname = window.location.pathname
+    // /slide-manager-app/slides のようなパスの場合、/slide-manager-app を抽出
+    // /slides のようなルートパスの場合は '/' を返す
+    const match = pathname.match(/^\/([^/]+)/)
+    if (match && match[1] && match[1] !== 'slides' && match[1] !== 'slide') {
+      // 最初のパスセグメントが 'slides' や 'slide' でない場合、それがベースパス
+      return `/${match[1]}`
+    }
+    // ルートパスの場合は '/' を返す
+    return ''
+  }
+  
+  // フォールバック: GitHub Pages用の決め打ちパス
+  // 開発環境では '' になるが、本番では '/slide-manager-app' になる
+  return '/slide-manager-app'
+})
 
 // 開発時はAPI、本番（SPA）ではJSONファイルを読み込む
 // APIが失敗した場合はJSONファイルにフォールバック
