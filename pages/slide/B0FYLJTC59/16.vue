@@ -1,9 +1,74 @@
 <template>
-  <SlidePageWrapper slide-id="B0FYLJTC59" page-title="第10章: ホメホメ社会宣言" :current-page="16" :total-pages="20">
-<div class="slide-container flex flex-col items-center px-16 py-12"><!-- Header --><div class="w-full mb-8"><h1 class="text-4xl font-bold text-center"><span class="color-accent">第10章:</span> ホメホメ社会宣言</h1><div class="w-32 h-1 bg-orange-400 mx-auto mt-4"></div></div><!-- Main Content --><div class="flex-1 w-full flex flex-col justify-center"><div class="grid grid-cols-1 gap-8"><!-- 宣言 --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-bullhorn text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">宣言:</p></div><p class="ml-12 text-xl text-gray-700">言葉を変えれば、未来が変わる。</p></div><!-- SNS --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-share-alt text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">SNS:</p></div><p class="ml-12 text-xl text-gray-700">称賛の広場に（言い方の設計、拡散の基準）。</p></div><!-- 職場/地域 --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-building text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">職場/地域:</p></div><p class="ml-12 text-xl text-gray-700">承認が回る仕組みを"制度"として実装。</p></div><!-- 国家像 --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-flag text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">国家像:</p></div><p class="ml-12 text-xl text-gray-700">「ありがとう」が響く社会が、挑戦と信頼を生む。</p></div></div></div><!-- Footer --><div class="w-full flex justify-between items-center mt-8"><div class="flex items-center"><i class="fas fa-heart text-sm color-accent mr-2"></i><p class="text-sm text-gray-500">ホメホメ革命</p></div><p class="text-sm text-gray-500">16 / 20</p></div></div>
-  </SlidePageWrapper>
+    <SlidePageWrapper slide-id="B0FYLJTC59" page-title="第10章: ホメホメ社会宣言" :current-page="16" :total-pages="20">
+        <div class="slide-container flex flex-col items-center px-16 py-12">
+            <!-- Header -->
+            <div class="w-full mb-8">
+                <h1 class="text-4xl font-bold text-center text-gray-700"><span class="color-accent">第10章:</span> ホメホメ社会宣言</h1>
+                <div class="w-32 h-1 bg-orange-400 mx-auto mt-4"></div>
+            </div><!-- Main Content -->
+            <div class="flex-1 w-full flex flex-col justify-center">
+                <div class="grid grid-cols-1 gap-8">
+                    <!-- 宣言 -->
+                    <div class="content-box pl-6 py-2">
+                        <div class="flex items-center"><i class="fas fa-bullhorn text-2xl color-accent mr-4"></i>
+                            <p class="text-2xl font-bold text-gray-700">宣言:</p>
+                        </div>
+                        <p class="ml-12 text-xl text-gray-700">言葉を変えれば、未来が変わる。</p>
+                    </div><!-- SNS -->
+                    <div class="content-box pl-6 py-2">
+                        <div class="flex items-center"><i class="fas fa-share-alt text-2xl color-accent mr-4"></i>
+                            <p class="text-2xl font-bold text-gray-700">SNS:</p>
+                        </div>
+                        <p class="ml-12 text-xl text-gray-700">称賛の広場に（言い方の設計、拡散の基準）。</p>
+                    </div><!-- 職場/地域 -->
+                    <div class="content-box pl-6 py-2">
+                        <div class="flex items-center"><i class="fas fa-building text-2xl color-accent mr-4"></i>
+                            <p class="text-2xl font-bold text-gray-700">職場/地域:</p>
+                        </div>
+                        <p class="ml-12 text-xl text-gray-700">承認が回る仕組みを"制度"として実装。</p>
+                    </div><!-- 国家像 -->
+                    <div class="content-box pl-6 py-2">
+                        <div class="flex items-center"><i class="fas fa-flag text-2xl color-accent mr-4"></i>
+                            <p class="text-2xl font-bold text-gray-700">国家像:</p>
+                        </div>
+                        <p class="ml-12 text-xl text-gray-700">「ありがとう」が響く社会が、挑戦と信頼を生む。</p>
+                    </div>
+                </div>
+            </div><!-- Footer -->
+            <div class="w-full flex justify-between items-center mt-8">
+                <div class="flex items-center"><i class="fas fa-heart text-sm color-accent mr-2"></i>
+                    <p class="text-sm text-gray-500">ホメホメ革命</p>
+                </div>
+                <p class="text-sm text-gray-500">16 / 20</p>
+            </div>
+        </div>
+    </SlidePageWrapper>
 </template>
-
 <style scoped>
-body, html {            margin: 0;            padding: 0;            font-family: 'M PLUS Rounded 1c', sans-serif;        }        .slide-container {            width: 1280px;            min-height: 720px;            overflow: hidden;            position: relative;            background-color: #FFF8F0;        }        .color-accent {            color: #FF8A00;        }        .bg-accent-light {            background-color: rgba(255, 138, 0, 0.1);        }        .content-box {            border-left: 4px solid #FF8A00;        }
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.slide-container {
+    width: 1280px;
+    min-height: 720px;
+    overflow: hidden;
+    position: relative;
+    background-color: #FFF8F0;
+}
+
+.color-accent {
+    color: #FF8A00;
+}
+
+.bg-accent-light {
+    background-color: rgba(255, 138, 0, 0.1);
+}
+
+.content-box {
+    border-left: 4px solid #FF8A00;
+}
 </style>

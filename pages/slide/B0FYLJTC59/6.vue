@@ -1,9 +1,74 @@
 <template>
-  <SlidePageWrapper slide-id="B0FYLJTC59" page-title="第1章: ホメホメマインドの基本" :current-page="6" :total-pages="20">
-<div class="slide-container flex flex-col items-center px-16 py-12"><!-- Header --><div class="w-full mb-8"><h1 class="text-4xl font-bold text-center"><span class="color-accent">第1章: ホメホメ</span>マインドの基本            </h1><div class="w-32 h-1 bg-orange-400 mx-auto mt-4"></div></div><!-- Main Content --><div class="flex-1 w-full flex flex-col justify-center"><div class="grid grid-cols-1 gap-8"><!-- コア --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-heart text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">コア:</p></div><p class="ml-12 text-xl text-gray-700">相手の存在・努力・変化・挑戦の芽を見つけ、言葉で照らす。</p></div><!-- 価値転換 --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-exchange-alt text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">価値転換:</p></div><p class="ml-12 text-xl text-gray-700">減点→承認／批判→信頼／分断→共感。</p></div><!-- 最大の敵 --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-exclamation-triangle text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">最大の敵:</p></div><p class="ml-12 text-xl text-gray-700">怒りではなく"無関心"。関わる姿勢がチームの生命線。</p></div><!-- 適用範囲 --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-map-marker-alt text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">適用範囲:</p></div><p class="ml-12 text-xl text-gray-700">家庭・学校・職場など日常すべての関係に有効。</p></div></div></div><!-- Footer --><div class="w-full flex justify-between items-center mt-8"><div class="flex items-center"><i class="fas fa-heart text-sm color-accent mr-2"></i><p class="text-sm text-gray-500">ホメホメ革命</p></div><p class="text-sm text-gray-500">6 / 20</p></div></div>
-  </SlidePageWrapper>
+    <SlidePageWrapper slide-id="B0FYLJTC59" page-title="第1章: ホメホメマインドの基本" :current-page="6" :total-pages="20">
+        <div class="slide-container flex flex-col items-center px-16 py-12">
+            <!-- Header -->
+            <div class="w-full mb-8">
+                <h1 class="text-4xl font-bold text-center text-gray-700"><span class="color-accent">第1章: ホメホメ</span>マインドの基本 </h1>
+                <div class="w-32 h-1 bg-orange-400 mx-auto mt-4"></div>
+            </div><!-- Main Content -->
+            <div class="flex-1 w-full flex flex-col justify-center">
+                <div class="grid grid-cols-1 gap-8">
+                    <!-- コア -->
+                    <div class="content-box pl-6 py-2">
+                        <div class="flex items-center"><i class="fas fa-heart text-2xl color-accent mr-4"></i>
+                            <p class="text-2xl font-bold text-gray-700">コア:</p>
+                        </div>
+                        <p class="ml-12 text-xl text-gray-700">相手の存在・努力・変化・挑戦の芽を見つけ、言葉で照らす。</p>
+                    </div><!-- 価値転換 -->
+                    <div class="content-box pl-6 py-2">
+                        <div class="flex items-center"><i class="fas fa-exchange-alt text-2xl color-accent mr-4"></i>
+                            <p class="text-2xl font-bold text-gray-700">価値転換:</p>
+                        </div>
+                        <p class="ml-12 text-xl text-gray-700">減点→承認／批判→信頼／分断→共感。</p>
+                    </div><!-- 最大の敵 -->
+                    <div class="content-box pl-6 py-2">
+                        <div class="flex items-center"><i class="fas fa-exclamation-triangle text-2xl color-accent mr-4"></i>
+                            <p class="text-2xl font-bold text-gray-700">最大の敵:</p>
+                        </div>
+                        <p class="ml-12 text-xl text-gray-700">怒りではなく"無関心"。関わる姿勢がチームの生命線。</p>
+                    </div><!-- 適用範囲 -->
+                    <div class="content-box pl-6 py-2">
+                        <div class="flex items-center"><i class="fas fa-map-marker-alt text-2xl color-accent mr-4"></i>
+                            <p class="text-2xl font-bold text-gray-700">適用範囲:</p>
+                        </div>
+                        <p class="ml-12 text-xl text-gray-700">家庭・学校・職場など日常すべての関係に有効。</p>
+                    </div>
+                </div>
+            </div><!-- Footer -->
+            <div class="w-full flex justify-between items-center mt-8">
+                <div class="flex items-center"><i class="fas fa-heart text-sm color-accent mr-2"></i>
+                    <p class="text-sm text-gray-500">ホメホメ革命</p>
+                </div>
+                <p class="text-sm text-gray-500">6 / 20</p>
+            </div>
+        </div>
+    </SlidePageWrapper>
 </template>
-
 <style scoped>
-body, html {            margin: 0;            padding: 0;            font-family: 'M PLUS Rounded 1c', sans-serif;        }        .slide-container {            width: 1280px;            min-height: 720px;            overflow: hidden;            position: relative;            background-color: #FFF8F0;        }        .color-accent {            color: #FF8A00;        }        .bg-accent-light {            background-color: rgba(255, 138, 0, 0.1);        }        .content-box {            border-left: 4px solid #FF8A00;        }
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.slide-container {
+    width: 1280px;
+    min-height: 720px;
+    overflow: hidden;
+    position: relative;
+    background-color: #FFF8F0;
+}
+
+.color-accent {
+    color: #FF8A00;
+}
+
+.bg-accent-light {
+    background-color: rgba(255, 138, 0, 0.1);
+}
+
+.content-box {
+    border-left: 4px solid #FF8A00;
+}
 </style>

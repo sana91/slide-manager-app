@@ -1,7 +1,47 @@
 <template>
   <SlidePageWrapper slide-id="B0FYLJTC59" page-title="序章: 日本社会の現状と課題" :current-page="4" :total-pages="20">
-<div class="slide-container flex flex-col items-center px-16 py-12"><!-- Header --><div class="w-full mb-8"><h1 class="text-4xl font-bold text-center"><span class="color-accent">序章:</span> 日本社会の現状と課題            </h1><div class="w-32 h-1 bg-orange-400 mx-auto mt-4"></div></div><!-- Main Content --><div class="flex-1 w-full flex flex-col justify-center"><div class="grid grid-cols-1 gap-8"><!-- 現状認識 --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-search text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">現状認識:</p></div><p class="ml-12 text-xl text-gray-700">分断より共感、批判より信頼、減点より承認が求められている。</p></div><!-- 課題 --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-exclamation-circle text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">課題:</p></div><p class="ml-12 text-xl text-gray-700">叱る文化と整いすぎた仕組みが「余白」を奪い、声をかけ合う力を低下。</p></div><!-- 症状 --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-stethoscope text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">症状:</p></div><p class="ml-12 text-xl text-gray-700">間違えないことにエネルギーを使い、挑戦が萎む。沈黙と無関心の蔓延。</p></div><!-- 提案 --><div class="content-box pl-6 py-2"><div class="flex items-center"><i class="fas fa-lightbulb text-2xl color-accent mr-4"></i><p class="text-2xl font-bold text-gray-700">提案:</p></div><p class="ml-12 text-xl text-gray-700">日常に「ありがとう」を取り戻す"ホメホメ革命"で空気を変える。</p></div></div></div><!-- Footer --><div class="w-full flex justify-between items-center mt-8"><div class="flex items-center"><i class="fas fa-heart text-sm color-accent mr-2"></i><p class="text-sm text-gray-500">ホメホメ革命</p></div><p class="text-sm text-gray-500">4 / 20</p></div></div>
-  </SlidePageWrapper>
+<div class="slide-container flex flex-col items-center px-16 py-12">
+    <!-- Header -->
+    <div class="w-full mb-8">
+        <h1 class="text-4xl font-bold text-center text-gray-700"><span class="color-accent">序章:</span> 日本社会の現状と課題 </h1>
+        <div class="w-32 h-1 bg-orange-400 mx-auto mt-4"></div>
+    </div><!-- Main Content -->
+    <div class="flex-1 w-full flex flex-col justify-center">
+        <div class="grid grid-cols-1 gap-8">
+            <!-- 現状認識 -->
+            <div class="content-box pl-6 py-2">
+                <div class="flex items-center"><i class="fas fa-search text-2xl color-accent mr-4"></i>
+                    <p class="text-2xl font-bold text-gray-700">現状認識:</p>
+                </div>
+                <p class="ml-12 text-xl text-gray-700">分断より共感、批判より信頼、減点より承認が求められている。</p>
+            </div><!-- 課題 -->
+            <div class="content-box pl-6 py-2">
+                <div class="flex items-center"><i class="fas fa-exclamation-circle text-2xl color-accent mr-4"></i>
+                    <p class="text-2xl font-bold text-gray-700">課題:</p>
+                </div>
+                <p class="ml-12 text-xl text-gray-700">叱る文化と整いすぎた仕組みが「余白」を奪い、声をかけ合う力を低下。</p>
+            </div><!-- 症状 -->
+            <div class="content-box pl-6 py-2">
+                <div class="flex items-center"><i class="fas fa-stethoscope text-2xl color-accent mr-4"></i>
+                    <p class="text-2xl font-bold text-gray-700">症状:</p>
+                </div>
+                <p class="ml-12 text-xl text-gray-700">間違えないことにエネルギーを使い、挑戦が萎む。沈黙と無関心の蔓延。</p>
+            </div><!-- 提案 -->
+            <div class="content-box pl-6 py-2">
+                <div class="flex items-center"><i class="fas fa-lightbulb text-2xl color-accent mr-4"></i>
+                    <p class="text-2xl font-bold text-gray-700">提案:</p>
+                </div>
+                <p class="ml-12 text-xl text-gray-700">日常に「ありがとう」を取り戻す"ホメホメ革命"で空気を変える。</p>
+            </div>
+        </div>
+    </div><!-- Footer -->
+    <div class="w-full flex justify-between items-center mt-8">
+        <div class="flex items-center"><i class="fas fa-heart text-sm color-accent mr-2"></i>
+            <p class="text-sm text-gray-500">ホメホメ革命</p>
+        </div>
+        <p class="text-sm text-gray-500">4 / 20</p>
+    </div>
+</div>  </SlidePageWrapper>
 </template>
 
 <style scoped>
