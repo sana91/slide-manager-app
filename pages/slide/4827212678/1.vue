@@ -1,0 +1,9 @@
+<template>
+  <SlidePageWrapper slide-id="4827212678" page-title="100倍「読者」が増える！「いいね」が付く！文章・コラムの書き方" :current-page="1" :total-pages="20">
+<div class="slide-container flex flex-col items-center justify-center"><div class="bg-pattern"></div><div class="accent-line"></div><div class="z-10 flex flex-col items-center justify-center px-20 py-16 text-center"><div class="mb-6"><p class="subtitle text-2xl mb-4">書いて発信し、セルフブランディングする方法</p><h1 class="title text-6xl mb-6"><span class="text-red-500">100倍</span>「読者」が増える！<br/>                    「いいね」が付く！<br/><span class="text-4xl mt-4 inline-block">文章・コラムの書き方</span></h1><p class="subtitle text-xl mt-6">要約スライド</p></div><div class="mt-16"><p class="author text-2xl">著者：潮凪 洋介</p></div><div class="absolute bottom-8 right-8"><p class="text-sm text-gray-500">© 2023 All Rights Reserved</p></div></div></div>
+  </SlidePageWrapper>
+</template>
+
+<style scoped>
+body {            margin: 0;            padding: 0;            font-family: 'Noto Sans JP', sans-serif;        }        .slide-container {            width: 1280px;            min-height: 720px;            background-color: #f8f9fa;            overflow: hidden;            position: relative;        }        .bg-pattern {            position: absolute;            width: 100%;            height: 100%;            background-color: #f8f9fa;            opacity: 0.8;        }        .accent-line {            position: absolute;            width: 12px;            height: 120px;            background-color: #ff6b6b;            left: 120px;            top: 260px;        }        .title {            font-weight: 900;            color: #333;            line-height: 1.3;        }        .subtitle {            color: #555;            font-weight: 700;        }        .author {            color: #555;            font-weight: 400;        }
+</style>
